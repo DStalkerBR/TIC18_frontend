@@ -1,0 +1,26 @@
+h2, h5 {
+    color: goldenrod;
+}
+
+p.Roupas, p.moveis {
+    color: blue;
+}
+
+li {
+    color:tomato;
+}
+
+ul.lista > li.usada {
+    color: purple;
+    font-weight: bold;
+}
+
+ul.moveis > li.usada {
+    color: lime;
+    font-weight: bold;
+}
+
+.alimentos {
+    color: aqua;
+}
+

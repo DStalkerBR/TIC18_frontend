@@ -1,0 +1,29 @@
+* {
+    font-weight: normal;
+}
+
+img {
+    width: 200px;
+    height: 200px;
+}
+
+#amarelo {
+    color: yellow;
+}
+
+#vermelho {
+    color: red;
+}
+
+#azul {
+    color:cornflowerblue;
+}
+
+#marron {
+    color:burlywood;
+}
+
+#violeta {
+    color: blueviolet;
+}
+

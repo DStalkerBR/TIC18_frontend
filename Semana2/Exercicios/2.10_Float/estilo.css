@@ -1,0 +1,10 @@
+img {
+    float:right;
+    display: block;
+    height: 200px;
+}
+
+#p51 {
+    float:left;
+    display: block;
+}

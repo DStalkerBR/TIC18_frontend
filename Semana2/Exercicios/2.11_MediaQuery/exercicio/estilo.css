@@ -1,0 +1,17 @@
+@media (max-width:772px) {
+    h4 {
+        background-color: aqua;
+    }
+}
+
+@media (min-width:773px) and (max-width:1100px){
+    h4 {
+        background-color: blueviolet;
+    }
+}
+
+@media (min-width:1101px) {
+    h4 {
+        background-color: red;
+    }
+}

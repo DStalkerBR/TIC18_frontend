@@ -1,0 +1,22 @@
+* {
+    text-align: center;
+}
+
+li[value='3'] {
+    font-size: small;
+}
+
+li[value='3'] a {
+    font-size: small;
+    color: red;
+}
+
+.nots {
+    font-size: large;
+    color:black;
+}
+
+#sulbahia {
+    font-size: large;
+    color: greenyellow;
+}

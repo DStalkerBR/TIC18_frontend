@@ -1,0 +1,23 @@
+.caixa > p {
+    color: yellow;
+    margin: 5px;
+}
+
+.caixa > .caixa-interna > p {
+    background-color: red;
+    color: white;
+}
+
+.caixa {
+    background-color: blue;
+}
+
+.caixa > div {
+    padding:5px
+}
+
+.caixa-externa {
+    padding: 15px !important;
+    background-color: purple; 
+} 
+/* TODO */

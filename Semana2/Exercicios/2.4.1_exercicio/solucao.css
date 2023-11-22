@@ -1,0 +1,23 @@
+* {
+    text-align: right;
+}
+
+body {
+    font-size: 40px;
+}
+
+h2 {
+    color: brown
+}
+
+h3 {
+    font-size: 3rem;
+}
+
+h4 {
+    font-weight: 400;
+}
+
+h5 {
+    font-family: 'Kenia', sans-serif;
+}   
