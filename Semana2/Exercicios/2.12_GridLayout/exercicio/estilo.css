@@ -1,0 +1,41 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 50px 50px 300px 50px;
+    gap: 10px;
+}
+
+.grid-container > * {
+    padding-top: 10px;
+    padding-left: 10px;
+    color: white;
+}
+
+.header {
+    background-color: green;
+    grid-column: span 3;
+}
+
+.barra-lateral {
+    background-color:sienna;
+    grid-row: span 4
+}
+
+.caixa1 {
+    background-color: orangered;
+}
+
+.caixa2 {
+    background-color: orangered;
+    grid-column: span 2;
+}
+
+.conteudo {
+    background-color: blue;
+    grid-column: span 3;
+}
+
+.footer {
+    background-color: brown;
+    grid-column: span 3;    
+}
