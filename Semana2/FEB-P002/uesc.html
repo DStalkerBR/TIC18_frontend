@@ -12,25 +12,27 @@
     <header>
         <h1>Universidade</h1>
     </header>
-    <div id="conteudo">
-        <aside id="menu">
-            <h2> MENU </h2>
-            <nav>
+
+    <main id="conteudo">
+        <aside id="menu" class="secao">
+            <div class="titulo">
+                <h2> MENU </h2>
+            </div>
+            <nav class="bloco">
                 <ul>
-                    <li> Titulo 1</li>
-                    <li> Titulo 2</li>
-                    <li> Titulo 3</li>
-                    <li> Titulo 4</li>
+                    <li> Opção 01</li>
+                    <li> Opção 02</li>
+                    <li> Opção 03</li>
+                    <li> Opção 04</li>
                 </ul>
             </nav>
-            <section id="servicos">
-                <h2>Serviços</h2>
-            </section>
         </aside>
 
-        <main>
-            <section id="noticias">
-                <h1> Noticias </h1>
+        <section id="noticias" class="secao">
+            <div class="titulo">
+                <h2> NOTICIAS </h2>
+            </div>
+            <article class="bloco">
                 <p>
                     <strong> Titulo 1 </strong><br>
                     <a href="">Sub titulo com link</a>
@@ -43,16 +45,42 @@
                     <strong> Titulo 3 </strong><br>
                     <a href="">Sub titulo com link</a>
                 </p>
-            </section>
+            </article>
+        </section>
 
-            <section id="destaque">
-                <h2> Destaque </h2>
-                <img src="" alt="">
-                <img src="" alt="">
-            </section>
+        <section id="destaque" class="secao">
+            <div class="titulo">
+                <h2> DESTAQUE </h2>
+            </div>
+            <article class="bloco">
+                <img src=http://www.uesc.br/adm/xml/imagens/uescacontece.jpg alt="">
+                <img src="https://bocanews.com.br/wp-content/uploads/2023/05/uesc-recebe-aprovacao-no-programa-erasmus.jpg"
+                    alt="">
+            </article>
+        </section>
 
-            <section id="resultados">
-                <h2> Resultados </h2>
+        <section id="servicos" class="secao">
+            <div class="titulo">
+                <h2>SERVIÇOS</h2>
+            </div>
+            <article class="bloco">
+                <p>
+                    <strong> Titulo 1 </strong><br>
+                    <a href="">Sub titulo com link</a>
+                </p>
+
+                <p>
+                    <strong> Titulo 2 </strong><br>
+                    <a href="">Sub titulo com link</a>
+                </p>
+            </article>
+        </section>
+
+        <section id="resultados" class="secao">
+            <div class="titulo">
+                <h2> RESULTADOS </h2>
+            </div>
+            <article class="bloco">
                 <p>
                     <strong> Titulo 1 </strong><br>
                     <a href="">Sub titulo com link</a>
@@ -65,13 +93,21 @@
                     <strong> Titulo 3 </strong><br>
                     <a href="">Sub titulo com link</a>
                 </p>
-            </section>
+            </article>
+        </section>
+    </main>
 
-        </main>
+    <footer>
+        <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores ea quo doloribus voluptates! Excepturi
+            aperiam alias quisquam, quia, necessitatibus eum eos odit, qui consectetur fugit eaque illo voluptas
+            provident soluta.
+        </p>
+        <button id="botao" onclick="window.location.href='../../portifolio.html'">Portifólio</button>
 
-    </div>
 
-    <div id="footer"></div>
+    </footer>
+
 </body>
 
 </html>
