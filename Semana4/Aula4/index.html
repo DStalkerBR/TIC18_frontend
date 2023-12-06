@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Adicionar Tarefa</h1>
+    <form id="formularioTarefa">
+        <input type="text" placeholder="Entre com uma tarefa" id="tarefaText"> <button type="submit">Adicionar</button>
+    </form>
+    <button id="carregar"> Carregar</button>
+    <button id="limpar"> Limpar</button>
+    <button id="delete"> Apagar Storage</button>
+    <ul id="listaTarefas">
+
+    </ul>
+    <script>
+        class Tarefa {
+            constructor(nome) {
+                this.nome = nome;
+            }
+            toString() {
+                return this.nome;
+            }
+        }
+
+        
+        function adicionaTarefaDOM(tarefa){
+            let lista = document.getElementById("listaTarefas");
+            let item = document.createElement("li");
+            item.textContent = tarefa.nome;
+            lista.appendChild(item);
+        }
+
+        function adicionaTarefaNoStorage(tarefa){
+            let tarefas = localStorage.getItem("tarefas");
+            if(tarefas == null){
+                tarefas = [];
+            }else{
+                tarefas = JSON.parse(tarefas);
+            }
+            tarefas.push(tarefa);
+            localStorage.setItem("tarefas", JSON.stringify(tarefas));
+        }
+
+        function carregaTarefas(){
+            let tarefas = localStorage.getItem("tarefas");
+            if(tarefas != null){
+                tarefas = JSON.parse(tarefas);
+                for(let i = 0; i < tarefas.length; i++){
+                    adicionaTarefaDOM(tarefas[i]);
+                }
+            }
+        }
+
+        document.getElementById('formularioTarefa').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var texto = document.getElementById('tarefaText').value;
+            let tarefa = new Tarefa(texto);
+            adicionaTarefaDOM(tarefa);
+            adicionaTarefaNoStorage(tarefa);
+        });
+
+        document.getElementById("carregar").addEventListener("click", function(){
+            carregaTarefas();
+        });
+
+        document.getElementById("limpar").addEventListener("click", function(){
+            localStorage.removeItem("tarefas");
+            listaTarefas.innerHTML = "";
+        });
+
+        document.getElementById("delete").addEventListener("click", function(){
+            localStorage.clear();
+        });
+        
+    </script>
+</body>
+</html>
