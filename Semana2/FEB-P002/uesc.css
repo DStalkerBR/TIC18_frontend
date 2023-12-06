@@ -116,9 +116,3 @@ footer > button:hover {
         margin-bottom: 10px; 
     }
 }
-
-@media screen and (max-height: 800px) {
-    footer {
-      position: fixed;
-    }
-  }
