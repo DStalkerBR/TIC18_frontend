@@ -1,0 +1,18 @@
+
+<h1> Arara</h1>
+<div class="descricao">
+    {{ getToString() }}
+</div>
+<br>
+<img src="{{ imagem }}" alt="Arara Canindé">
+
+<h2> Arara 2 </h2>
+<h3> {{ title }} </h3>
+<p style="color: red;"> {{ descricao }} </p>
+<img [src]="url" alt="Arara Canindé 2">
+
+<h3>ngModel</h3>
+<input type="text" [(ngModel)]="nome2">
+<p id="textoDigitado"> {{nome2}}</p> 
+
+<button (click)="onClick()"> Clique Aqui</button>
