@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="turismo.css">
+    <title>Agência de Turismo</title>
+</head>
+
+<body>
+    <header>
+        <h1>Agência de Turismo</h1>
+        <h2 class="titulo"> Destinos</h2>
+    </header>
+    <div class="destinos">
+        <div class="destino">
+            <img src="img/salvador.jpeg" alt="">
+            <h2>Salvador</h2>
+            <ul class="pacote">
+                <li> Aéreo ida e volta</li>
+                <li> 03 Diárias</li>
+                <li> Café da manhã</li>
+            </ul>
+            <p class="preco">R$670,00</p>
+            <p class="taxa">Taxas inclusas</p>
+            <p class="parcela">Em ate 10x sem juros</p>
+            <button>Comprar</button>
+        </div>
+        <div class="destino">
+            <img src="img/porto.avif" alt="">
+            <h2>Porto Seguro</h2>
+            <ul class="pacote">
+                <li> Aéreo ida e volta</li>
+                <li> 05 Diárias</li>
+                <li> Café da manhã</li>
+            </ul>
+            <p class="preco">500,00</p>
+            <p class="taxa">Taxas inclusas</p>
+            <p class="parcela">Em ate 10x sem juros</p>
+            <button>Comprar</button>
+        </div>
+        <div class="destino">
+            <img src="img/ilheus.avif" alt="">
+            <h2>Ilhéus</h2>
+            <ul class="pacote">
+                <li> Aéreo ida e volta</li>
+                <li> 03 Diárias</li>
+                <li> Café da manhã</li>
+            </ul>
+            <p class="preco">R$400,00</p>
+            <p class="taxa">Taxas inclusas</p>
+            <p class="parcela">Em ate 10x sem juros</p>
+            <button>Comprar</button>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>Agência de Turismo</p>
+        <p>Telefone: (11) 99999-9999</p>
+        <p>Endereço: Rua dos Espertos, 42 - São Paulo - SP</p>
+        <button id="botao" onclick="window.location.href='../../portifolio.html'">Portifólio</button>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var buttons = document.querySelectorAll('.destino button');
+            buttons.forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var destino = this.parentElement.querySelector('h2').innerText;
+                    var preco = this.parentElement.querySelector('.preco').innerText;
+                    var taxa = this.parentElement.querySelector('.taxa').innerText;
+                    var parcela = this.parentElement.querySelector('.parcela').innerText;
+
+                    var pacoteTuristico = {
+                        destino: destino,
+                        preco: preco,
+                        taxa: taxa,
+                        parcela: parcela
+                    };
+
+                    console.log(pacoteTuristico);
+                });
+            });
+        });
+    </script>
+
+</body>
+
+</html>
