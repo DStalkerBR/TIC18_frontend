@@ -1,0 +1,10 @@
+<h2> Previsão do Tempo 🌤️</h2>
+<div *ngFor="let tarefa of listaTarefas_listaTarefasComponent">
+    <ul>
+    <li><app-item-tarefas [itemTarefa]="tarefa"></app-item-tarefas></li>
+    </ul>
+</div>
+
+
+<input #novaTarefa type="text">
+<button (click)="addTarefa(novaTarefa.value)"> Adicionar Previsão</button>

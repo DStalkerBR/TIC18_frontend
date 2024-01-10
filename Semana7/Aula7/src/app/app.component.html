@@ -1,0 +1,9 @@
+<app-lista-tarefas [listaTarefas_listaTarefasComponent] ="tarefas_appComponents" (tarefaAdicionada)="onTarefaAdicionada($event)"></app-lista-tarefas>
+<p #temp> Temperatura: 0.0</p> <button appAnimator (click)="mudarTemperatura()"> Atualizar Temperatura</button>
+
+<p> Repetindo Elementos</p>
+<div *appRepeater="3">
+    <p id='sol'>☀️</p>
+</div>
+
+<router-outlet></router-outlet>
