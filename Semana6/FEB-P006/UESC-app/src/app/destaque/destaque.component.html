@@ -3,8 +3,11 @@
       <h2>DESTAQUE</h2>
     </div>
     <article class="bloco">
-      <img src="{{ imagens?.imagem1 }}" alt="" />
-      <img src="{{ imagens?.imagem2 }}" alt="" />
+      <p *ngFor="let image of imagens | slice:0:2 ">
+      <ng-container *ngIf="image">
+          <img [src]="'https://campusdata.uark.edu/resources/images/articles/' + image"/>    
+      </ng-container> 
+      </p>
     </article>
   </section>
   

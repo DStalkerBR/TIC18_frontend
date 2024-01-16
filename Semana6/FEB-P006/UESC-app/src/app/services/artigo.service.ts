@@ -8,8 +8,8 @@ import { Observable, map } from 'rxjs';
 export class ArtigoService {
   constructor(private http: HttpClient) {}
 
-  obterArtigos(): Observable<any[]> {
-    return this.http.get<any[]>('https://campusdata.uark.edu/apiv2/articles/SearchArticle?$orderby=publishDate+desc&$top=3')
+  obterArtigos(num_artigos: number): Observable<any[]> {
+    return this.http.get<any[]>(`https://campusdata.uark.edu/apiv2/articles/SearchArticle?$orderby=publishDate+desc&$top=${num_artigos}`)
       .pipe(map(artigos => this.removerTagsHtmlDosArtigos(artigos)));
   }
 
@@ -27,4 +27,5 @@ export class ArtigoService {
     div.innerHTML = htmlString;
     return div.textContent || div.innerText || '';
   }
+
 }
