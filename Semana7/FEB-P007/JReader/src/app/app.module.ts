@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // Importe o módulo de animações do Angular
 import { MatButtonModule } from '@angular/material/button'; // Importe o módulo de botões do Angular Material
 import { MatIconModule } from '@angular/material/icon'; // Importe o módulo de ícones do Angular Material
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 
 import { AppComponent } from './app.component';
 import { CarrinhoComponent } from './carrinho/carrinho.component';
@@ -36,7 +37,7 @@ import { VeiculoEstiloDirective } from './veiculo-estilo.directive';
     MatButtonModule, 
     MatIconModule // Adicione o módulo de ícones do Angular Material
   ],
-  providers: [],
+  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
