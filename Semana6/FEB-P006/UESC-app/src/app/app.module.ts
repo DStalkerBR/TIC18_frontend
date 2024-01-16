@@ -7,9 +7,9 @@ import { NoticiasComponent } from './noticias/noticias.component';
 import { DestaqueComponent } from './destaque/destaque.component';
 import { ServicosComponent } from './servicos/servicos.component';
 import { ResultadosComponent } from './resultados/resultados.component';
-import { ArtigoService } from './noticias/artigo.service';
+import { ArtigoService } from './services/artigo.service';
 import { HttpClientModule } from '@angular/common/http';
-import { ClimaService } from './servicos/clima.service';
+import { ClimaService } from './services/clima.service';
 import { ServicoComponent } from './servico/servico.component';
 
 @NgModule({

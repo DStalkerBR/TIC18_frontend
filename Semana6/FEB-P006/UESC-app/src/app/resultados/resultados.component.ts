@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ResultadosService } from './resultados.service';
+import { ResultadosService } from '../services/resultados.service';
 
 @Component({
   selector: 'app-resultados',
@@ -20,7 +20,7 @@ export class ResultadosComponent implements OnInit {
       (data) => {
         this.noticias = data;
       },
-      (erro) => {
+      (erro : string) => {
         console.error('Erro ao obter notícias:', erro);
       }
     );

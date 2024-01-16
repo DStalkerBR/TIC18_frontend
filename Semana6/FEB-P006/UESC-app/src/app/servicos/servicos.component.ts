@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ClimaService } from './clima.service';
+import { ClimaService } from '../services/clima.service';
 
 @Component({
   selector: 'app-servicos',

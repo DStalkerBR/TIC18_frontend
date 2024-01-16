@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { DestaqueService } from './destaque.service';
+import { DestaqueService } from '../services/destaque.service';
+import { ArtigoService } from '../services/artigo.service';
 
 @Component({
   selector: 'app-destaque',
@@ -7,8 +8,19 @@ import { DestaqueService } from './destaque.service';
   styleUrls: ['./destaque.component.css'],
 })
 export class DestaqueComponent implements OnInit {
-  imagens: any;
+  imagens: any[] = [];
 
+  constructor(private artigoService: ArtigoService) { }
+
+  ngOnInit(): void {
+    this.artigoService.obterArtigos(5).subscribe(artigos => {
+      this.imagens = artigos
+        .filter(artigo => artigo.image) 
+        .map(artigo => artigo.image);
+    });
+  }
+
+  /*
   constructor(private destaqueService: DestaqueService) {}
 
   ngOnInit() {
@@ -24,5 +36,5 @@ export class DestaqueComponent implements OnInit {
         console.error('Erro ao obter destaques:', erro);
       }
     );
-  }
+  } */
 }
