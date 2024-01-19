@@ -1,0 +1,7 @@
+<h2> Resultados para {{termo}} </h2>
+
+<article *ngFor="let artigo of artigos" >
+    <h2>{{ artigo.title }}</h2>
+    <p [innerHTML]="artigo.snippet"></p>
+    <a [href]="artigo.link" target="_blank">Leia mais</a>
+</article>

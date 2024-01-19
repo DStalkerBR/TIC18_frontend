@@ -1,0 +1,5 @@
+<h1>Consultando a API da Wikipedia</h1>
+
+<app-barra-busca (termoBuscaBarra)="termoBusca($event)"></app-barra-busca>
+<app-resultado-pesquisa *ngIf="resultado" [termo]="termo" [artigos]="artigos" ></app-resultado-pesquisa>
+
