@@ -5,8 +5,9 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class RealceTermoPipe implements PipeTransform {
 
-  transform(value: unknown, ...args: unknown[]): unknown {
-    return null;
+  transform(valor: string, termo: string): string {
+    const regex = new RegExp(termo, 'gi');
+    return valor.replace(regex, (match) => `<strong>${match}</strong>`);
   }
 
 }
