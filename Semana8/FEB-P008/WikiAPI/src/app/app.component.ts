@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { trigger, state, style, animate, transition } from '@angular/animations';
 import { WikipediaApiService } from './wikipedia-api.service';
 
 @Component({
@@ -8,13 +9,13 @@ import { WikipediaApiService } from './wikipedia-api.service';
 })
 export class AppComponent {
   title = 'WikiAPI';
-  termo : string = '';
+  termo: string = '';
   artigos: any[] = [];
   resultado: boolean = false;
 
   constructor(private wikipediaApiService: WikipediaApiService) { }
 
-  termoBusca (event: string) : void {
+  termoBusca(event: string): void {
     this.termo = event;
     this.realizarPesquisa();
   }

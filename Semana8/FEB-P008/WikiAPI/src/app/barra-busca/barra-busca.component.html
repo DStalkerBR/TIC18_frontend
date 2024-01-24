@@ -1,2 +1,4 @@
-<input type="text" #pesquisa placeholder="Pesquisar Artigos" (keydown.enter)="onBuscar(pesquisa.value)">
-<button (click)="onBuscar(pesquisa.value)">Buscar</button>
+<div class="search-container">
+    <input type="text" #pesquisa placeholder="Pesquisar Artigos" (keydown.enter)="onBuscar(pesquisa.value)">
+    <button (click)="onBuscar(pesquisa.value)">Buscar</button>
+</div>
