@@ -1,0 +1,28 @@
+<!-- directive formGroup -->
+<!-- directive formControlName -->
+
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <div>
+    <h2>
+      Formulário de Login
+    </h2>
+  </div>
+  <div>
+    <input type="email" id="email" formControlName="email" placeholder="Login">
+    <span *ngIf="!loginForm.get('email')?.valid && loginForm.get('email')?.touched"> 
+      <i class="fa fa-times" aria-hidden="true"> 
+        Email inválido
+      </i>
+    </span>
+  </div>
+  <div>
+    <input type="password" id="senha" formControlName="password" placeholder="Senha">
+    <span *ngIf="!loginForm.get('password')?.valid && loginForm.get('password')?.touched"> 
+      <i class="fa fa-check" aria-hidden="true">
+        Senha inválida
+      </i>
+    </span>
+  </div>
+  <button type="submit">Enviar</button>
+</form>
+
