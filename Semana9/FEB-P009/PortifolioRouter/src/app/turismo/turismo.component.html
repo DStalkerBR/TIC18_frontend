@@ -1,0 +1,82 @@
+<body>
+    <header>
+        <h1>Agência de Turismo</h1>
+        <h2 class="titulo"> Destinos</h2>
+    </header>
+
+    <div id="formulario">
+        <h2>Formulário de Pacote Turístico</h2>
+        <form id="pacoteForm">
+            <label for="destino">Destino:</label>
+            <input type="text" id="destino" name="destino" required>
+
+            <label for="imagemURL">URL da Imagem:</label>
+            <input type="text" id="imagemURL" name="imagemURL" required>
+
+            <label for="aereo">Aéreo (ida e volta):</label>
+            <input type="text" id="aereo" name="aereo" required>
+
+            <label for="diarias">Número de Diárias:</label>
+            <input type="number" id="diarias" name="diarias" required>
+
+            <label for="cafeManha">Café da Manhã:</label>
+            <input type="text" id="cafeManha" name="cafeManha" required>
+
+            <label for="preco">Preço:</label>
+            <input type="text" id="preco" name="preco" required>
+
+            <label for="taxas">Taxas:</label>
+            <input type="text" id="taxas" name="taxas" required>
+
+            <label for="parcelas">Parcelamento:</label>
+            <input type="text" id="parcelas" name="parcelas" required>
+
+            <button type="button" onclick="inserirPacote()">Inserir</button>
+        </form>
+    </div>
+
+    <hr>
+
+    <div class="destinos">
+    </div>
+
+    <script>
+        function inserirPacote() {
+            var destino = document.getElementById('destino').value;
+            var imagemURL = document.getElementById('imagemURL').value;
+            var aereo = document.getElementById('aereo').value;
+            var diarias = document.getElementById('diarias').value;
+            var cafeManha = document.getElementById('cafeManha').value;
+            var preco = document.getElementById('preco').value;
+            var taxas = document.getElementById('taxas').value;
+            var parcelas = document.getElementById('parcelas').value;
+
+            var pacoteDiv = document.createElement('div');
+            pacoteDiv.className = 'destino roteiro-viagens';
+
+            pacoteDiv.innerHTML = ` 
+                <img src="${imagemURL}" alt="${destino}">
+                <h2>${destino}</h2>
+                <ul class="pacote">
+                    <li>${aereo}</li>
+                    <li>${diarias} Diárias</li>
+                    <li>${cafeManha}</li>
+                </ul>
+                <p class="preco">${preco}</p>
+                <p class="taxa">${taxas}</p>
+                <p class="parcela">${parcelas}</p>
+                <button>Comprar</button>
+            `;
+
+            document.querySelector('.destinos').appendChild(pacoteDiv);
+        }
+    </script>
+
+    <footer>
+        <p>Agência de Turismo</p>
+        <p>Telefone: (11) 99999-9999</p>
+        <p>Endereço: Rua dos Espertos, 42 - São Paulo - SP</p>
+        <button id="botao" onclick="window.location.href='../../portifolio.html'">Portifólio</button>
+    </footer>
+
+</body>
