@@ -1,25 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway&family=Red+Hat+Display&display=swap');
 
-body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Raleway', sans-serif;
-    background-color: #f8f8f8;
-}
-
-header {
-    background-color: #7e57c2; 
-    padding: 10px;
-    color: #fff; 
-    font-family: 'Red Hat Display', sans-serif;
-    font-size: 24px;
-    font-weight: bold;
-    text-align: center;
-    border-bottom: 1px solid #673ab7; 
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-
 .titulo {
     text-align: center;
     font-family: 'Red Hat Display', sans-serif;
@@ -32,6 +12,8 @@ header {
 
 
 .destinos {
+    padding: 0;
+    font-family: 'Raleway', sans-serif;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
