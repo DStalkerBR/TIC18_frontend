@@ -1,13 +1,14 @@
 div {
-    padding: 10px;
+    padding: 15px;
     margin-bottom: 10px;
     text-align: center;
-    background-color: #34495e; 
-    border-radius: 5px;
+    background-color: #3498db; 
+    border-radius: 8px;
     color: #ecf0f1;
-    font-size: 20px;
+    font-size: 24px;
     font-weight: bold;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2);
+    font-family: 'Roboto Condensed', sans-serif;
 }
 
 ul {
@@ -19,19 +20,26 @@ ul {
 
 li {
     display: inline-block; 
-    margin-right: 10px; 
+    margin-right: 20px;
+    border-right: 2px solid #73b9ff;  /* Adiciona uma borda à direita em cada item */
+    padding-right: 20px;  /* Espaçamento à direita para separar o texto da borda */
+}
+
+li:last-child {
+    border-right: none;  /* Remove a borda à direita do último item */
 }
 
 li a {
     display: block;
     color: #ecf0f1;
     text-align: center;
-    padding: 14px 20px;
+    padding: 15px 20px;
     text-decoration: none;
-    transition: background-color 0.3s; 
+    transition: background-color 0.3s, color 0.3s; 
 }
 
 li a:hover {
     background-color: #2ecc71; 
+    color: #ffffff;
     cursor: pointer;
 }

@@ -5,6 +5,7 @@ import { WikiMainComponent } from './wikiapi/wiki-main/wiki-main.component';
 
 
 export const routes: Routes = [
+  { path: '', redirectTo: 'turismo', pathMatch: 'full' },
   { path: 'turismo', component: TurismoComponent },
   { path: 'uesc', component: UniversidadeComponent },
   { path: 'wiki', component: WikiMainComponent}
