@@ -1,0 +1,104 @@
+.titulo {
+    text-align: center;
+    font-family: 'Red Hat Display', sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    background-color: #b292e9;
+    margin: 0;
+    padding: 10px;
+}
+
+.destinos {
+    padding: 0;
+    font-family: 'Raleway', sans-serif;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 1200px;
+    margin-bottom: 200px;
+}
+
+.destino {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #fff;
+    width: 50%; 
+    max-width: 200px;
+    height: 400px;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ddd; 
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.destino img {
+    width: 100%;
+    height: 200px;
+    border-radius: 10px;
+}
+
+.destino h2 {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    color: #333; 
+}
+
+.destino > .pacote {
+    list-style-type: none;
+    padding: 0;
+}
+
+.destino > .pacote > li::before {
+    content: "✓";
+    color: #2196f3;
+    margin-right: 5px;
+}
+
+.destino p {
+    margin: 0;
+    font-size: 14px;
+    text-align: center;
+    color: #666;
+}
+
+.destino > .preco {
+    font-size: x-large;
+    font-weight: bold;
+    text-align: center;
+    color: #2d97ee;
+}
+
+.destino button {
+    margin-top: 10px;
+    width: 100%;
+    height: 30px;
+    border-radius: 10px;
+    background-color: #2196f3;
+    color: #fff;
+    font-weight: bold;
+    transition-duration: 0.3s;
+    box-shadow: 0 4px 8px rgba(33, 150, 243, 0.2);
+}
+
+.destino button:hover {
+    background-color: #1565c0;
+    cursor: pointer;
+    box-shadow: 0 6px 12px rgba(33, 150, 243, 0.3);
+}
+
+.destino button:active {
+    transform: scale(0.9);
+    box-shadow: none;
+}
+
+@media (max-width: 1200px) {
+    .destinos {
+        flex-direction: column;
+    }
+}

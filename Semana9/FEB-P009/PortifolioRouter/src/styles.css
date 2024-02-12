@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Biryani&family=Roboto+Condensed&family=Ubuntu&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway&family=Red+Hat+Display&display=swap');
+
+
+.secao {
+    background-color: white;
+    color: #000;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    border: 1px solid #9aafd1;
+    overflow: hidden;
+    height: 100%;
+}
+
+.secao > .titulo {
+    margin: 0;
+    padding: 10px;
+    background-color: #9aafd1;
+    color: #fff;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.secao > .bloco {
+    padding: 10px;
+    font-family: 'Biryani', sans-serif;
+}
+
+.bloco ul {
+    padding: 0;
+}
