@@ -1,0 +1,12 @@
+<div>
+    <ul>
+        <li *ngFor="let compraVenda of compraVendaList">
+            <img [src]="compraVenda.foto" alt="Foto do carro">
+            <p>Modelo: {{compraVenda.modelo}}</p>
+            <p>Marca: {{compraVenda.marca}}</p>
+            <p>Ano: {{compraVenda.ano}}</p>
+            <p>Valor: {{compraVenda.valor}}</p>
+            <p>Cor: {{compraVenda.cor}}</p>
+        </li>
+    </ul>
+</div>

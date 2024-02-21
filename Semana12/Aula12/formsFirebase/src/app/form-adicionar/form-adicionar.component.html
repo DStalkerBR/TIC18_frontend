@@ -1,0 +1,14 @@
+<div>
+<h2>
+    Formulário de Compra e Venda
+</h2>
+<form [formGroup]="compraVendaForm" (ngSubmit)="onSubmit()" class="compraVenda">
+    <input type="text" formControlName="modelo" placeholder="Modelo">
+    <input type="text" formControlName="marca" placeholder="Marca">
+    <input type="date" formControlName="ano" placeholder="Ano">
+    <input type="number" formControlName="valor" placeholder="  Valor">
+    <input type="text" formControlName="cor" placeholder="Cor">
+    <input type="file" formControlName="foto" placeholder="Foto" class="adicionaFotoInput">
+    <button type="submit" >Adicionar</button>
+</form>
+</div>

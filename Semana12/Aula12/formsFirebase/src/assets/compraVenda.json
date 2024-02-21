@@ -1,0 +1,12 @@
+{ "Carros":
+    [
+        {
+            "modelo": "Fiesta",
+            "marca": "Ford",
+            "ano": "2010",
+            "valor": "R$ 20.000,00",
+            "cor": "Preto",
+            "foto": ""
+        }
+    ]
+}
