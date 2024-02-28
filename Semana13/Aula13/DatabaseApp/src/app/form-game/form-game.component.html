@@ -1,0 +1,32 @@
+
+<h2>
+    <a routerLink="/home">Back</a>
+    Create Game
+</h2>
+<form [formGroup]="GameForm" (ngSubmit) = "onSubmit()" class="gameCreation">
+    <div class="form-group">
+        <input type="text" formControlName="name" class="form-control" id="name" placeholder="Name">
+    </div>
+    <div class="form-group">
+        <input type="text" formControlName="genre" class="form-control" id="genre" placeholder="Genre">
+    </div>
+    <div class="form-group">
+        <input type="text" formControlName="platform" class="form-control" id="platform" placeholder="Platform">
+    </div>
+    <div class="form-group">
+        <input type="text" formControlName="release" class="form-control" id="release" placeholder="Release">
+    </div>
+    <div class="form-group">
+        <input type="text" formControlName="developer" class="form-control" id="developer" placeholder="Developer">
+    </div>
+    <div class="form-group">
+        <input type="text" formControlName="publisher" class="form-control" id="publisher" placeholder="Publisher">
+    </div>
+    <div class="form-group">
+        <input type="text" formControlName="cover" class="form-control" id="cover" placeholder="Cover">
+    </div>
+    <div class="form-group">
+        <input type="text" formControlName="description" class="form-control" id="description" placeholder="Description">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
