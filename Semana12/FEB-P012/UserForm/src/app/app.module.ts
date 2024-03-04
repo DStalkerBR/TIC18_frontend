@@ -11,11 +11,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { FormUsuarioComponent } from './form-usuario/form-usuario.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { EventosComponent } from './eventos/eventos.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FormUsuarioComponent,
+    EventosComponent,
   ],
   imports: [
     BrowserModule,

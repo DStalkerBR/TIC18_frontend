@@ -1,6 +1,9 @@
 <div class="container">
     <form [formGroup]="formUsuario" class="form" (submit)="onSubmit()">
-        <h1>Formulário de Usuário</h1>
+        <div class="header">
+            <h1>Formulário de Usuário</h1> 
+            <button mat-raised-button color="primary" type="button" (click)="toggleEventos()">Eventos</button>
+        </div>
         <div class="form-group">
             <mat-form-field>
                 <input matInput placeholder="Nome" formControlName="nome">
@@ -122,4 +125,5 @@
         </div>
         <button mat-raised-button color="primary" type="submit" [disabled]="formUsuario.invalid">Enviar</button>
     </form>
+    <app-eventos *ngIf="isEventosVisible"></app-eventos>
 </div>

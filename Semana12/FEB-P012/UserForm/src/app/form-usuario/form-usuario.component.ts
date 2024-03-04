@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormService } from '../form.service';
 
-// form deve usar todas as capacidades do material design
 @Component({
   selector: 'app-form-usuario',
   templateUrl: './form-usuario.component.html',
@@ -10,6 +10,12 @@ import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/fo
       display: flex;
       justify-content: center;
       align-items: center;
+    }    
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
     }
 
     .form {
@@ -31,17 +37,18 @@ import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/fo
 
     .multiform .form-group {
       margin-bottom: 10px;
-    }
-
-  `]
+    }`]
 })
 export class FormUsuarioComponent {
   title = 'UserForm';
   formUsuario: FormGroup;
   generos: string[] = ['Masculino', 'Feminino', 'Outro'];
   profissoes: string[] = ['Estudante', 'Empregado', 'Desempregado', 'Empresário', 'Outro'];
+  valueEvent : any;
+  statusEvent : any;
+  isEventosVisible = true;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private formService: FormService) {
     this.formUsuario = this.fb.group({
       nome: ['', [
         Validators.required,
@@ -83,7 +90,9 @@ export class FormUsuarioComponent {
       genero: [this.generos[0], Validators.required],
       profissao:[this.profissoes[0], Validators.required]     
     });
-  }
+
+      this.formService.trackFormChanges(this.formUsuario);
+  }  
 
   /**
    * Valida a data de nascimento.
@@ -105,6 +114,11 @@ export class FormUsuarioComponent {
 
   onSubmit() {
     var dataForm = JSON.stringify(this.formUsuario.value);
-    console.log(dataForm);    
+    console.log(dataForm);   
+    this.formService.resetForm(this.formUsuario);
+  }
+
+  toggleEventos() {
+    this.isEventosVisible = !this.isEventosVisible;
   }
 }
