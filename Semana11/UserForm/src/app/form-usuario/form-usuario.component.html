@@ -4,7 +4,7 @@
         <div class="form-group">
             <mat-form-field>
                 <input matInput placeholder="Nome" formControlName="nome">
-                <mat-error *ngIf="formUsuario.get('nome')?.invalid">
+                <mat-error>
                     <span *ngIf="formUsuario.get('nome')?.hasError('required')">Nome é obrigatório</span>
                     <span *ngIf="formUsuario.get('nome')?.hasError('maxlength')">Nome deve ter no mínimo 10 caracteres</span>
                     <span *ngIf="formUsuario.get('nome')?.hasError('pattern')">Nome deve conter apenas letras</span>
@@ -14,7 +14,7 @@
         <div class="form-group">
             <mat-form-field>
                 <input matInput type="password" placeholder="Senha" formControlName="senha">
-                <mat-error *ngIf="formUsuario.get('senha')?.invalid">
+                <mat-error>
                     <span *ngIf="formUsuario.get('senha')?.hasError('required')">Senha é obrigatória</span>
                     <span *ngIf="formUsuario.get('senha')?.hasError('minlength')">Senha deve ter no mínimo 4 caracteres</span>
                     <span *ngIf="formUsuario.get('senha')?.hasError('pattern')">Senha deve conter pelo menos uma letra maiúscula e um caractere especial</span>
@@ -24,7 +24,7 @@
         <div class="form-group">
             <mat-form-field>
                 <input matInput placeholder="Email" formControlName="email">
-                <mat-error *ngIf="formUsuario.get('email')?.invalid">Email inválido</mat-error>
+                <mat-error>Email inválido</mat-error>
             </mat-form-field>
         </div>
         <div class="form-group multiform" formGroupName="nomeCompleto" >
@@ -32,20 +32,20 @@
             <div class="form-group">
                 <mat-form-field>
                     <input matInput placeholder="Primeiro Nome" formControlName="primeiroNome">
-                    <mat-error *ngIf="formUsuario.get('nomeCompleto')?.get('primeiroNome')?.invalid">Primeiro Nome Obrigatório</mat-error>
+                    <mat-error>Primeiro Nome Obrigatório</mat-error>
                 </mat-form-field>
             </div>
             <div class="form-group">
                 <mat-form-field>
                     <input matInput placeholder="Último Nome" formControlName="ultimoNome">
-                    <mat-error *ngIf="formUsuario.get('nomeCompleto')?.get('ultimoNome')?.invalid">Último Nome Obrigatório</mat-error>
+                    <mat-error>Último Nome Obrigatório</mat-error>
                 </mat-form-field>
             </div>
         </div>
         <div class="form-group">
             <mat-form-field>
                 <input matInput placeholder="Telefone" formControlName="telefone">
-                <mat-error *ngIf="formUsuario.get('telefone')?.invalid">
+                <mat-error>
                     <span *ngIf="formUsuario.get('telefone')?.hasError('required')">Telefone é obrigatório</span>
                     <span *ngIf="formUsuario.get('telefone')?.hasError('pattern')">Telefone deve estar no formato (00) 00000-0000</span>
                 </mat-error>
@@ -56,13 +56,13 @@
             <div class="form-group">
                 <mat-form-field>
                     <input matInput placeholder="Rua" formControlName="rua">
-                    <mat-error *ngIf="formUsuario.get('endereco')?.get('rua')?.invalid">Rua Necessária</mat-error>
+                    <mat-error>Rua Necessária</mat-error>
                 </mat-form-field>
             </div>
             <div class="form-group">
                 <mat-form-field>
                     <input matInput placeholder="Número" formControlName="numero">
-                    <mat-error *ngIf="formUsuario.get('endereco')?.get('numero')?.invalid">Número Necessário</mat-error>
+                    <mat-error>Número Necessário</mat-error>
                 </mat-form-field>
             </div>
             <div class="form-group">
@@ -73,19 +73,19 @@
             <div class="form-group">
                 <mat-form-field>
                     <input matInput placeholder="Cidade" formControlName="cidade">
-                    <mat-error *ngIf="formUsuario.get('endereco')?.get('cidade')?.invalid">Cidade Necessária</mat-error>                    
+                    <mat-error>Cidade Necessária</mat-error>                    
                 </mat-form-field>
             </div>
             <div class="form-group">
                 <mat-form-field>
                     <input matInput placeholder="Estado" formControlName="estado">
-                    <mat-error *ngIf="formUsuario.get('endereco')?.get('estado')?.invalid">Estado Necessário</mat-error>                   
+                    <mat-error>Estado Necessário</mat-error>                   
                 </mat-form-field>
             </div>
             <div class="form-group">
                 <mat-form-field>
                     <input matInput placeholder="CEP" formControlName="cep">
-                    <mat-error *ngIf="formUsuario.get('endereco')?.get('cep')?.invalid">
+                    <mat-error>
                         <span *ngIf="formUsuario.get('endereco')?.get('cep')?.hasError('required')">CEP é obrigatório</span>
                         <span *ngIf="formUsuario.get('endereco')?.get('cep')?.hasError('pattern')">CEP deve estar no formato 00000-000</span>
                     </mat-error>
@@ -98,7 +98,7 @@
                     formControlName="dataDeNascimento">
                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
-                <mat-error *ngIf="formUsuario.get('dataDeNascimento')?.invalid">
+                <mat-error>
                     <span *ngIf="formUsuario.get('dataDeNascimento')?.hasError('required')">Data de Nascimento é obrigatória</span>
                     <span *ngIf="formUsuario.get('dataDeNascimento')?.hasError('lessThanEighteen')">Usuário deve ser maior de idade</span>
                 </mat-error>

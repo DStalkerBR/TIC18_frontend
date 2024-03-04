@@ -85,6 +85,12 @@ export class FormUsuarioComponent {
     });
   }
 
+  /**
+   * Valida a data de nascimento.
+   * 
+   * @param control O controle do formulário que contém a data de nascimento.
+   * @returns Um objeto contendo a chave 'lessThanEighteen' com o valor true se a data for inválida ou se o usuário tiver menos de 18 anos, caso contrário, retorna null.
+   */
   validarDataNascimento(control: AbstractControl): { [key: string]: boolean } | null {
     const inputDate = new Date(control.value);
     const currentDate = new Date();
