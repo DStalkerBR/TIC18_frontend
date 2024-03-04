@@ -7010,11 +7010,11 @@
       ],
       "format": "esm"
     },
-    "angular:styles/component:css;cab17b9ccb748d4889eb332404f6dd2eb702003bb5fd762e24cdf28e276b689b;D:/Documentos/Residencia/TIC18_frontend/Semana11/UserForm/src/app/app.component.ts": {
+    "angular:styles/component:css;cab17b9ccb748d4889eb332404f6dd2eb702003bb5fd762e24cdf28e276b689b;D:/Documentos/Residencia/TIC18_frontend/Semana11/FEB-P011/UserForm/src/app/app.component.ts": {
       "bytes": 140,
       "imports": []
     },
-    "angular:styles/component:css;b8ca68706de122b3f10da30b1b73aecfaa1919dbd0153bd452cef2a73600340c;D:/Documentos/Residencia/TIC18_frontend/Semana11/UserForm/src/app/form-usuario/form-usuario.component.ts": {
+    "angular:styles/component:css;b8ca68706de122b3f10da30b1b73aecfaa1919dbd0153bd452cef2a73600340c;D:/Documentos/Residencia/TIC18_frontend/Semana11/FEB-P011/UserForm/src/app/form-usuario/form-usuario.component.ts": {
       "bytes": 432,
       "imports": []
     },
@@ -7420,7 +7420,7 @@
     "app.component-TQUHHUII.css": {
       "imports": [],
       "inputs": {
-        "angular:styles/component:css;cab17b9ccb748d4889eb332404f6dd2eb702003bb5fd762e24cdf28e276b689b;D:/Documentos/Residencia/TIC18_frontend/Semana11/UserForm/src/app/app.component.ts": {
+        "angular:styles/component:css;cab17b9ccb748d4889eb332404f6dd2eb702003bb5fd762e24cdf28e276b689b;D:/Documentos/Residencia/TIC18_frontend/Semana11/FEB-P011/UserForm/src/app/app.component.ts": {
           "bytesInOutput": 70
         }
       },
@@ -7430,7 +7430,7 @@
     "form-usuario.component-SYZPH6X2.css": {
       "imports": [],
       "inputs": {
-        "angular:styles/component:css;b8ca68706de122b3f10da30b1b73aecfaa1919dbd0153bd452cef2a73600340c;D:/Documentos/Residencia/TIC18_frontend/Semana11/UserForm/src/app/form-usuario/form-usuario.component.ts": {
+        "angular:styles/component:css;b8ca68706de122b3f10da30b1b73aecfaa1919dbd0153bd452cef2a73600340c;D:/Documentos/Residencia/TIC18_frontend/Semana11/FEB-P011/UserForm/src/app/form-usuario/form-usuario.component.ts": {
           "bytesInOutput": 268
         }
       },
