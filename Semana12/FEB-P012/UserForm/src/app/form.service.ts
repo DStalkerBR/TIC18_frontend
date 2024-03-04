@@ -8,6 +8,8 @@ import { Observable, Subject } from 'rxjs';
 export class FormService {
   private formChanges: Subject<any> = new Subject<any>();
   private formObserver: Observable<any> = this.formChanges.asObservable();
+  private isEventosVisible = true;
+  private eventosVisibleObserver: Subject<boolean> = new Subject<boolean>();
 
   constructor() { }
 
@@ -66,6 +68,14 @@ export class FormService {
       cep = cep.replace(/^(\d{5})(\d)/, '$1-$2');
       form.get('endereco.cep')?.setValue(cep, { emitEvent: false });
     }
+  }
+
+  toggleEventos(visibility : boolean) : void{
+    this.eventosVisibleObserver.next(visibility);
+  }
+
+  getEventosVisibility(): Observable<boolean> {
+    return this.eventosVisibleObserver;
   }
 
   getFormChanges(): Observable<any> {

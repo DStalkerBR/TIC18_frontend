@@ -2,7 +2,7 @@
     <form [formGroup]="formUsuario" class="form" (submit)="onSubmit()">
         <div class="header">
             <h1>Formulário de Usuário</h1> 
-            <button mat-raised-button color="primary" type="button" (click)="toggleEventos()">Eventos</button>
+            <button mat-raised-button color="primary" type="button" (click)="enableEventos()">Eventos</button>
         </div>
         <div class="form-group">
             <mat-form-field>
@@ -125,5 +125,5 @@
         </div>
         <button mat-raised-button color="primary" type="submit" [disabled]="formUsuario.invalid">Enviar</button>
     </form>
-    <app-eventos *ngIf="isEventosVisible"></app-eventos>
+    <app-eventos></app-eventos>
 </div>

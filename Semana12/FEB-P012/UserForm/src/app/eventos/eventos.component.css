@@ -1,0 +1,37 @@
+.eventos {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  max-width: 400px;
+  width: 100%;
+  z-index: 1000;
+}
+
+.eventos h2 {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.valueEvent,
+.statusEvent {
+  margin-top: 10px;
+}
+.valueEvent > p {
+  margin-bottom: 5px;
+  background-color: #f0f0f0;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}

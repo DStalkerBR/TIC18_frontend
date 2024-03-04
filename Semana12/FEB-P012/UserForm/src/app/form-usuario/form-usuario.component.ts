@@ -118,7 +118,7 @@ export class FormUsuarioComponent {
     this.formService.resetForm(this.formUsuario);
   }
 
-  toggleEventos() {
-    this.isEventosVisible = !this.isEventosVisible;
+  enableEventos() {
+    this.formService.toggleEventos(true);
   }
 }

@@ -1,0 +1,20 @@
+<div class="eventos" *ngIf=" (valueEvent || statusEvent) && isEventosVisible">
+    <span class="close-btn" (click)="closeEventos()">X</span>
+    <h2>Quadro de Eventos</h2>
+    <div *ngIf="valueEvent" class="valueEvent">         
+        <p> Tipo de Evento: {{valueEvent?.type}} </p>
+        <p>Nome: {{valueEvent?.value.nome}}</p>
+        <p>Senha: {{valueEvent?.value.senha}}</p>
+        <p>Email: {{valueEvent?.value.email}}</p>
+        <p>Nome Completo: {{valueEvent?.value.nomeCompleto?.primeiroNome}} {{valueEvent?.value.nomeCompleto?.ultimoNome}}</p>
+        <p>Telefone: {{valueEvent?.value.telefone}}</p>
+        <p>Endereço: {{valueEvent?.value.endereco?.rua}}, {{valueEvent?.value.endereco?.numero}}, {{valueEvent?.value.endereco?.complemento}}, {{valueEvent?.value.endereco?.cidade}}, {{valueEvent?.value.endereco?.estado}}, {{valueEvent?.value.endereco?.cep}}</p>
+        <p>Data de Nascimento: {{valueEvent?.value.dataDeNascimento}}</p>
+        <p>Gênero: {{valueEvent?.value.genero}}</p>
+        <p>Profissão: {{valueEvent?.value.profissao}}</p>
+    </div>
+    <div *ngIf="statusEvent" class="statusEvent">
+        <p> Tipo de Evento: {{statusEvent?.type}} </p>
+        <p>Status do Form: {{statusEvent?.status}}</p>
+    </div>
+  </div>
