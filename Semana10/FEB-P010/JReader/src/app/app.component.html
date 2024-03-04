@@ -1,0 +1,15 @@
+<div class="app-container">
+  <div class="sidebar mat-elevation-z2">
+    <app-classes></app-classes>
+    <app-carrinho></app-carrinho>
+  </div>
+
+  <div class="main-content">
+    <app-objetos></app-objetos>
+    <app-propriedades></app-propriedades>
+
+    <button mat-raised-button color="primary" class="add-to-cart" (click)="adicionarVeiculoAoCarrinho()">
+      Adicionar ao Carrinho
+    </button>
+  </div>
+</div>
