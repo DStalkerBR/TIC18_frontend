@@ -1,35 +1,57 @@
 import { Component } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
+// form deve usar todas as capacidades do material design
 @Component({
   selector: 'app-form-usuario',
-  template: `
-    <form [formGroup]="formUsuario">
-      <input type="text" formControlName="nome" placeholder="Nome">
-      <input type="email" formControlName="email" placeholder="Email">
-      <input type="password" formControlName="senha" placeholder="Senha">
-      <button type="submit">Enviar</button>
-    </form>
-  `,
-  styles: ``
+  templateUrl: './form-usuario.component.html',
+  styles: [`
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .form {
+      display: flex;
+      flex-direction: column;
+      width: 50%;
+    }
+
+    mat-form-field {
+      width: 100%;
+    }
+
+    .multiform {
+      border: 1px solid #ccc;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+
+    .multiform .form-group {
+      margin-bottom: 10px;
+    }
+
+  `]
 })
 export class FormUsuarioComponent {
   title = 'UserForm';
   formUsuario: FormGroup;
-  private generos: string[] = ['Masculino', 'Feminino', 'Outro'];
-  private profissoes: string[] = ['Estudante', 'Empregado', 'Desempregado', 'Empresário', 'Outro'];
+  generos: string[] = ['Masculino', 'Feminino', 'Outro'];
+  profissoes: string[] = ['Estudante', 'Empregado', 'Desempregado', 'Empresário', 'Outro'];
 
   constructor(private fb: FormBuilder) {
     this.formUsuario = this.fb.group({
       nome: ['', [
         Validators.required,
         Validators.maxLength(10), 
-        Validators.pattern('^[a-zA-Z0-9]*$')
+        Validators.pattern('^[a-zA-ZÀ-ú ]*$')
       ]],
       senha: ['', [
         Validators.required, 
         Validators.minLength(4), 
-        Validators.pattern('^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])')
+        Validators.pattern(/^(?=.*[A-Z])(?=.*[!@#$%^&*])/)
       ]],
       email: ['', [
         Validators.required, 
@@ -40,8 +62,8 @@ export class FormUsuarioComponent {
         ultimoNome: ['', Validators.required]
       }), 
       telefone: ['', [
-        Validators.required, 
-        Validators.pattern('^(?:\\d{10}|\\d{11})$')
+        Validators.required,
+        Validators.pattern(/^\([0-9]{2}\)[ ]?[0-9]{4,5}-[0-9]{4}$/)
       ]],
       endereco : this.fb.group({
         rua: ['', Validators.required],
@@ -56,8 +78,7 @@ export class FormUsuarioComponent {
       }), 
       dataDeNascimento: ['', [
         Validators.required, 
-        this.validarDataNascimento,
-        Validators.pattern('^(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[0-2])/[0-9]{4}$')
+        this.validarDataNascimento
       ]], 
       genero: [this.generos[0], Validators.required],
       profissao:[this.profissoes[0], Validators.required]     
@@ -70,10 +91,14 @@ export class FormUsuarioComponent {
     const eighteenYearsAgo = new Date(currentDate.getFullYear() - 18, currentDate.getMonth(), currentDate.getDate());
   
     if (isNaN(inputDate.getTime()) || inputDate > currentDate || inputDate > eighteenYearsAgo) {
-      return { 'invalidDate': true };
+      return { 'lessThanEighteen': true };
     }
   
     return null;
   }
 
+  onSubmit() {
+    var dataForm = JSON.stringify(this.formUsuario.value);
+    console.log(dataForm);    
+  }
 }
