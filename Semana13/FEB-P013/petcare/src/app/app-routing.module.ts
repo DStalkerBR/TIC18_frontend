@@ -8,7 +8,7 @@ const routes: Routes = [
   { path: '', redirectTo: '/cadastro', pathMatch: 'full' },
   { path: 'cadastro', component: CadastroComponent },
   { path: 'listagem', component: ListagemComponent },
-  { path: 'cadastro/:id', component: EdicaoComponent  }
+  { path: 'edicao/:id', component: EdicaoComponent  }
 ];
 
 @NgModule({

@@ -24,7 +24,7 @@ export class AtendimentoService {
     return this.http.get(`https://petcare-601dc-default-rtdb.firebaseio.com/atendimentos/${key}.json`);
   }
 
-  editar(key: string, atendimento: any) {
+  atualizar(key: string, atendimento: any) {
     return this.http.put(`https://petcare-601dc-default-rtdb.firebaseio.com/atendimentos/${key}.json`, atendimento);
   }
 

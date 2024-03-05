@@ -40,10 +40,12 @@ export class CadastroComponent implements OnInit {
 
       this.atendimentoService.cadastrar(novoAtendimento)
         .subscribe(response => {
+          alert('Atendimento cadastrado com sucesso!');
           console.log('Atendimento cadastrado com sucesso:', response);
           this.cadastroForm.reset();
         },
         error => {
+          alert('Erro ao cadastrar atendimento!');
           console.error('Erro ao cadastrar atendimento:', error);
         });
     } 

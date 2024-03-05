@@ -20,7 +20,11 @@ export class EdicaoComponent {
   ngOnInit(): void {
     this.criarFormulario();
     this.id = this.route.snapshot.paramMap.get('id');
-    
+
+    this.atendimentoService.detalhar(this.id!).subscribe(atendimento => {
+      this.atendimentoParaEdicao = atendimento;
+      this.cadastroForm.patchValue(this.atendimentoParaEdicao);
+    });    
   }
 
   private criarFormulario(): void {
@@ -43,14 +47,9 @@ export class EdicaoComponent {
       var novoAtendimento = this.cadastroForm.value;
       novoAtendimento.dataAtendimento = new Date(novoAtendimento.dataAtendimento).toISOString();
 
-/*       this.atendimentoService.editar(novoAtendimento.key, novoAtendimento)
-        .then(response => {
-          console.log('Atendimento atualizado com sucesso:', response);
-          this.cadastroForm.reset();
-        })
-        .catch(error => {
-          console.error('Erro ao atualizar atendimento:', error);
-        }); */
+      this.atendimentoService.atualizar(this.id!, novoAtendimento).subscribe(() => {
+        alert('Atendimento atualizado com sucesso!');
+      });
     }
   }
 }
