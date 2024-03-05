@@ -34,6 +34,15 @@
           <mat-icon matSuffix>category</mat-icon>
           <mat-error>Campo obrigatório</mat-error>
         </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Identificação</mat-label>
+          <mat-select formControlName="ident">
+            <mat-option *ngFor="let iden of ident" [value]="iden">{{iden}}</mat-option>
+          </mat-select>
+          <mat-icon matSuffix>perm_identity</mat-icon>
+          <mat-error>Campo obrigatório</mat-error>
+        </mat-form-field>
     
         <mat-form-field appearance="fill">
           <mat-label>Idade</mat-label>

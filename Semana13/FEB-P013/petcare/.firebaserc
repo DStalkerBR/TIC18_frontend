@@ -1,14 +1,5 @@
 {
   "projects": {
-    "default": "petcare-601dc"
-  },
-  "targets": {
-    "petcare-601dc": {
-      "hosting": {
-        "petcare": [
-          "petcare-601dc"
-        ]
-      }
-    }
+    "default": "petcare-18"
   }
 }
