@@ -3,7 +3,10 @@
 Este projeto foi gerado com o [Angular CLI](https://github.com/angular/angular-cli) versão 17.1.2.
 
 ## Descrição
-O PetCareAngular é uma aplicação para gerenciar atendimentos em um petshop. Contém funcionalidades como cadastro, listagem, edição e detalhamento de atendimentos. A aplicação se conecta a um backend Firebase.
+O PetCareAngular é uma aplicação para gerenciar atendimentos em um petshop. Contém funcionalidades como cadastro, listagem, edição e detalhamento de atendimentos. Além disso, agora inclui a funcionalidade de autenticação, permitindo que usuários se autentiquem no sistema para acessar recursos específicos.
+
+A aplicação se conecta a um backend Firebase para armazenar dados e gerenciar a autenticação dos usuários.
+
 
 ## Funcionalidades
 1. **Cadastro de atendimento:**
@@ -17,6 +20,9 @@ O PetCareAngular é uma aplicação para gerenciar atendimentos em um petshop. C
 
 4. **Detalhamento do atendimento:**
    - Visualização detalhada das informações de um atendimento.
+
+5. **Autenticação:**
+   - Autenticação de usuários para acesso ao sistema.
 
 ## Tecnologias Utilizadas
 - Angular
