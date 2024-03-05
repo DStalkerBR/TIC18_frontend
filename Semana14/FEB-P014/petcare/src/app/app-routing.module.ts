@@ -5,13 +5,16 @@ import { ListagemComponent } from './listagem/listagem.component';
 import { EdicaoComponent } from './edicao/edicao.component';
 import { DetalhamentoComponent } from './detalhamento/detalhamento.component';
 import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'cadastro', component: CadastroComponent },
-  { path: 'listagem', component: ListagemComponent },
-  { path: 'edicao/:id', component: EdicaoComponent  },
-  { path: 'detalhamento/:id', component: DetalhamentoComponent  }
+  { path: 'cadastro', component: CadastroComponent, canActivate: [AuthGuard] },
+  { path: 'listagem', component: ListagemComponent, canActivate: [AuthGuard] },
+  { path: 'edicao/:id', component: EdicaoComponent, canActivate: [AuthGuard] },
+  { path: 'detalhamento/:id', component: DetalhamentoComponent, canActivate: [AuthGuard] },
+  { path: 'login', component: LoginComponent }
 ];
 
 @NgModule({

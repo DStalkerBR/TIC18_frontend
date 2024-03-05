@@ -21,9 +21,11 @@ import { HeaderComponent } from './header/header.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
 import { MatTableModule } from '@angular/material/table';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
+import { AuthInterceptor } from './auth.interceptor';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -52,10 +54,12 @@ import { LoginComponent } from './login/login.component';
     MatToolbarModule,
     MatListModule,
     MatTableModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
   providers: [
-    provideAnimationsAsync()
+    provideAnimationsAsync(),
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
   ],
   bootstrap: [AppComponent]
 })
