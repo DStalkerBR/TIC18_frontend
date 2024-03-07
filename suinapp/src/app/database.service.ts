@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-export class BackendService {
+export class DataBaseService {
   private readonly firebaseURL = 'https://suinofarm-default-rtdb.firebaseio.com/';
 
   constructor(private http: HttpClient) {}
