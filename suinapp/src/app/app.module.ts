@@ -6,16 +6,27 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http'
 
 import { ButtonModule } from 'primeng/button';
+import { CheckboxModule } from 'primeng/checkbox';
+import { LoginComponent } from './login/login.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { InputTextModule } from 'primeng/inputtext';
+import { RippleModule } from 'primeng/ripple';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ButtonModule
+    ReactiveFormsModule,
+    ButtonModule,
+    CheckboxModule,
+    InputTextModule,
+    RippleModule
   ],
   providers: [],
   bootstrap: [AppComponent]
