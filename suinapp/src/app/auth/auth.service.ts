@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, tap } from 'rxjs';
 import { User } from './user.model'
 import { HttpClient } from '@angular/common/http';
+import { config } from '../app.config';
 
 interface AuthResponseData {
   idToken: string;
@@ -17,7 +18,7 @@ interface AuthResponseData {
 })
 export class AuthService {
   private identityURL = 'https://identitytoolkit.googleapis.com/v1/accounts:';
-  private projectAPIKey = ''; //TODO
+  private projectAPIKey = config.projectAPIKey; 
   user: BehaviorSubject<User> = new BehaviorSubject<User>(new User('', '', '', new Date()));
 
   constructor(private http: HttpClient) { }

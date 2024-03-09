@@ -6,7 +6,7 @@ import { AuthService } from '../auth/auth.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styles: ''
+  styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
   register = false;
@@ -17,7 +17,8 @@ export class LoginComponent implements OnInit {
 
   constructor(private authService: AuthService, private router: Router) {
     this.loginForm = new FormGroup({
-      email: new FormControl(null, [Validators.required, Validators.email]),
+      // email deve terminar com .algumacoisa
+      email: new FormControl(null, [Validators.required, Validators.pattern(/.+@.+\..+/)]),
       password: new FormControl(null, [Validators.required, Validators.minLength(6)]),
     });    
   }
@@ -36,10 +37,12 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     const email = this.loginForm.value.email;
-    const senha = this.loginForm.value.senha;
+    const password = this.loginForm.value.password;
+
+    console.log(email, password);
 
     if (!this.register) {
-      this.authService.login(email, senha).subscribe(
+      this.authService.login(email, password).subscribe(
         (resData) => {
           this.errorMsg = '';
           this.isUserAuthenticated = true;
@@ -51,7 +54,7 @@ export class LoginComponent implements OnInit {
         }
       );
     } else {
-      this.authService.cadastrarUser(email, senha).subscribe(
+      this.authService.cadastrarUser(email, password).subscribe(
         (resData) => {
           this.errorMsg = '';
           this.isUserAuthenticated = true;
@@ -67,6 +70,7 @@ export class LoginComponent implements OnInit {
         }
       );
     }
+    this.loginForm.reset();
   }
 
   onLogout() {
