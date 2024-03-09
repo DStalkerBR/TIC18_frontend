@@ -11,12 +11,16 @@ import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { InputTextModule } from 'primeng/inputtext';
 import { RippleModule } from 'primeng/ripple';
-
+import { MenubarModule } from 'primeng/menubar';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +30,8 @@ import { RippleModule } from 'primeng/ripple';
     ButtonModule,
     CheckboxModule,
     InputTextModule,
-    RippleModule
+    RippleModule,
+    MenubarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
