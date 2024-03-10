@@ -17,7 +17,8 @@ import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { PanelModule } from 'primeng/panel';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { SuinoListComponent } from './suino-list/suino-list.component';
+import { ListarSuinosComponent } from './listar-suinos/listar-suinos.component';
+
 
 @NgModule({
   declarations: [
@@ -26,7 +27,7 @@ import { SuinoListComponent } from './suino-list/suino-list.component';
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    SuinoListComponent,
+    ListarSuinosComponent,
   ],
   imports: [
     BrowserModule,

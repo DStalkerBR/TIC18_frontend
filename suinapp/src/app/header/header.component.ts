@@ -13,6 +13,7 @@ export class HeaderComponent implements OnInit {
     this.items = [
       { label: 'Home', routerLink: '/' },
       { label: 'Login', routerLink: '/login' },
+      { label: 'Listar Suinos', routerLink: '/listar-suinos' },
     ];
   }
 }
