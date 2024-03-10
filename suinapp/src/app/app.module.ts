@@ -20,6 +20,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ListarSuinosComponent } from './listar-suinos/listar-suinos.component';
 import { AuthInterceptor } from './auth.interceptor';
 import { CalcularIdadeMesesPipe } from './calcular-idade-meses.pipe';
+import { PesagemComponent } from './pesagem/pesagem.component';
+import { ChartModule } from 'primeng/chart';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,8 @@ import { CalcularIdadeMesesPipe } from './calcular-idade-meses.pipe';
     HomeComponent,
     ListarSuinosComponent,
     CalcularIdadeMesesPipe,
+    PesagemComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -43,7 +47,9 @@ import { CalcularIdadeMesesPipe } from './calcular-idade-meses.pipe';
     MenubarModule,
     PanelModule,
     BrowserAnimationsModule,
-    FormsModule
+    FormsModule,
+    ChartModule,
+    BrowserModule
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],
   bootstrap: [AppComponent]
