@@ -20,6 +20,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthInterceptor } from './auth.interceptor';
 import { CadastroPesoComponent } from './cadastro-peso/cadastro-peso.component';
 import { CalendarModule } from 'primeng/calendar';
+import { EdicaoPesoComponent } from './edicao-peso/edicao-peso.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { CalendarModule } from 'primeng/calendar';
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    CadastroPesoComponent
+    CadastroPesoComponent,
+    EdicaoPesoComponent
   ],
   imports: [
     BrowserModule,

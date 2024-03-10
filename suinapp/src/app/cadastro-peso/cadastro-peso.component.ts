@@ -43,7 +43,7 @@ export class CadastroPesoComponent implements OnInit {
           const weight = new Weight(
             this.weightForm.value.id,
             this.weightForm.value.brinco,
-            this.weightForm.value.data,
+            new Date(this.weightForm.value.data).toLocaleDateString(),
             this.weightForm.value.peso
           );
           this.databaseService.post(weight).subscribe(
