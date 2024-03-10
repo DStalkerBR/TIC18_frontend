@@ -18,6 +18,8 @@ import { HomeComponent } from './home/home.component';
 import { PanelModule } from 'primeng/panel';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthInterceptor } from './auth.interceptor';
+import { CadastroPesoComponent } from './cadastro-peso/cadastro-peso.component';
+import { CalendarModule } from 'primeng/calendar';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import { AuthInterceptor } from './auth.interceptor';
     LoginComponent,
     HeaderComponent,
     FooterComponent,
-    HomeComponent
+    HomeComponent,
+    CadastroPesoComponent
   ],
   imports: [
     BrowserModule,
@@ -38,6 +41,7 @@ import { AuthInterceptor } from './auth.interceptor';
     RippleModule,
     MenubarModule,
     PanelModule,
+    CalendarModule,
     BrowserAnimationsModule
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],
