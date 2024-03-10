@@ -17,9 +17,9 @@ export class LoginComponent implements OnInit {
 
   constructor(private authService: AuthService, private router: Router) {
     this.loginForm = new FormGroup({
-      // email deve terminar com .algumacoisa
       email: new FormControl(null, [Validators.required, Validators.pattern(/.+@.+\..+/)]),
       password: new FormControl(null, [Validators.required, Validators.minLength(6)]),
+      confirmPassword: new FormControl(null)
     });    
   }
 
@@ -38,8 +38,6 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     const email = this.loginForm.value.email;
     const password = this.loginForm.value.password;
-
-    console.log(email, password);
 
     if (!this.register) {
       this.authService.login(email, password).subscribe(
