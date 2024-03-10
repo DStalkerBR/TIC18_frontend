@@ -27,8 +27,16 @@
             <small *ngIf="loginForm.get('password')?.hasError('required')  && loginForm.get('password')?.touched" class="p-error">
               Senha é obrigatória.
             </small>
-            <small *ngIf="loginForm.get('password')?.hasError('minlength')  && loginForm.get('password  ')?.touched" class="p-error">
+            <small *ngIf="loginForm.get('password')?.hasError('minlength')  && loginForm.get('password')?.touched" class="p-error">
               A senha deve ter no mínimo 6 caracteres.
+            </small>
+          </div>
+
+          <div class="p-field" *ngIf="register">
+            <label for="confirmPassword">Confirme a Senha</label>
+            <input id="confirmPassword" type="password" pInputText formControlName="confirmPassword" />
+            <small *ngIf="loginForm.get('password')?.value !== loginForm.get('confirmPassword')?.value && loginForm.get('confirmPassword')?.touched" class="p-error">
+              As senhas não coincidem.
             </small>
           </div>
 

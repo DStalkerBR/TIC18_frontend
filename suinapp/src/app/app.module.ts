@@ -3,12 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http'
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http'
 
 import { ButtonModule } from 'primeng/button';
 import { CheckboxModule } from 'primeng/checkbox';
 import { LoginComponent } from './login/login.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InputTextModule } from 'primeng/inputtext';
 import { RippleModule } from 'primeng/ripple';
 import { MenubarModule } from 'primeng/menubar';
@@ -18,7 +18,8 @@ import { HomeComponent } from './home/home.component';
 import { PanelModule } from 'primeng/panel';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ListarSuinosComponent } from './listar-suinos/listar-suinos.component';
-
+import { AuthInterceptor } from './auth.interceptor';
+import { CalcularIdadeMesesPipe } from './calcular-idade-meses.pipe';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { ListarSuinosComponent } from './listar-suinos/listar-suinos.component';
     FooterComponent,
     HomeComponent,
     ListarSuinosComponent,
+    CalcularIdadeMesesPipe,
   ],
   imports: [
     BrowserModule,
@@ -40,9 +42,10 @@ import { ListarSuinosComponent } from './listar-suinos/listar-suinos.component';
     RippleModule,
     MenubarModule,
     PanelModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

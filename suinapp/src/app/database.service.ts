@@ -1,12 +1,17 @@
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Injectable } from '@angular/core';
+import { Observable, catchError, map, of } from 'rxjs';
 
+@Injectable({
+  providedIn: 'root',
+})
 export class DataBaseService {
   private readonly firebaseURL = 'https://suinofarm-default-rtdb.firebaseio.com/';
 
   constructor(private http: HttpClient) {}
 
   post(objeto: any, tabela: string = objeto.constructor.name) {
+    console.log(objeto);
     return this.http.post(`${this.firebaseURL}${tabela}.json`, objeto);
   }
 
