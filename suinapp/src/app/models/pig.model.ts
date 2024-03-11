@@ -12,7 +12,7 @@ export class Pig {
 
 export class Weight {
     constructor(
-        public id: number,
+        public id: number | null,
         public pig: number,
         public date: string,
         public weight: number

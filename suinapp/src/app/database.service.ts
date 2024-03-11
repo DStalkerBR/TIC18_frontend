@@ -23,6 +23,10 @@ export class DataBaseService {
     return this.http.get(`${this.firebaseURL}${tabela}/${key}.json`);
   }
 
+  getByColumn(key: string, tabela: string, column: string): Observable<any> {
+    return this.http.get<any>(`${this.firebaseURL}${tabela}.json?orderBy="${column}"&equalTo=${key}`);
+  }
+
   put(key: string, objeto: any, tabela: string = objeto.constructor.name) {
     return this.http.put(`${this.firebaseURL}${tabela}/${key}.json`, objeto);
   }
