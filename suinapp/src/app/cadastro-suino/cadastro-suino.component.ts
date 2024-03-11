@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { DataBaseService } from '../database.service';
+import { Pig } from '../models/pig.model';
 
 @Component({
   selector: 'app-cadastro-suino',
@@ -17,21 +19,44 @@ export class CadastroSuinoComponent {
     { name: 'M' },
     { name: 'F' }
   ];
-  
 
-  constructor(){
+  constructor(private databaseService: DataBaseService) {
     this.cadastroSuinoForm = new FormGroup({
       brincoAnimal: new FormControl(null, [Validators.required, Validators.pattern(/^[0-9]*$/)]),
       brincoPai: new FormControl(null, [Validators.required, Validators.pattern(/^[0-9]*$/)]),
       brincoMae: new FormControl(null, [Validators.required, Validators.pattern(/^[0-9]*$/)]),
-      dataNasc: new FormControl(null, [Validators.required, Validators.pattern(/^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/\d{4}$/)]),
-      dataSaida: new FormControl(null, [Validators.required, Validators.pattern(/^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/\d{4}$/)]),
+      dataNasc: new FormControl(null, [Validators.required]),
+      dataSaida: new FormControl(null, [Validators.required]),
       status: new FormControl(null, [Validators.required]),
       sexo: new FormControl(null, [Validators.required])
       })
+
+      this.cadastroSuinoForm.valueChanges.subscribe(
+        (value) => {
+          console.log(value);
+        }
+      );
   }
 
   onSubmit(){
+    const pig = new Pig(
+      this.cadastroSuinoForm.value.brincoAnimal,
+      this.cadastroSuinoForm.value.brincoPai,
+      this.cadastroSuinoForm.value.brincoMae,
+      new Date(this.cadastroSuinoForm.value.dataNasc).toLocaleDateString(),
+      new Date(this.cadastroSuinoForm.value.dataSaida).toLocaleDateString(),
+      this.cadastroSuinoForm.value.status.name,
+      this.cadastroSuinoForm.value.sexo.name
+    );
+    this.databaseService.post(pig).subscribe(
+      (response) => {
+        alert('Suíno cadastrado com sucesso!');
+        console.log(response);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
 
   }
   
