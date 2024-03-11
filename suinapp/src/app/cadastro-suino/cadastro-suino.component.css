@@ -1,0 +1,43 @@
+.btn-cadastrar{
+    background-color: #4caf50;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.5em;
+    margin-top: 30px;
+}
+
+.btn-cadastrar:hover {
+    background-color: #45a049;
+  }
+
+#container-cadastro{
+    margin: 20px auto;
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+input{
+    margin: 20px auto;
+    width: 100%;
+    height: 40px;
+}
+
+label{
+    margin: 10px;
+    font-size: 1.75em;
+    margin-bottom: 15px;
+}
+
+#container-botao{
+    text-align: center;
+}
+
+select{
+    height: 25px;
+}
