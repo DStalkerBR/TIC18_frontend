@@ -1,0 +1,14 @@
+<div *ngFor="let suino of suinos">
+    <p>Brinco do Animal: {{ suino.id }}</p>
+    <p>Brinco do Pai: {{ suino.father }}</p>
+    <p>Brinco da Mãe: {{ suino.mother }}</p>
+    <p>Data de Nascimento: {{ suino.birth }}</p>
+    <p>Data da Saída: {{ suino.exit }}</p>
+    <p>Status: {{ suino.status }}</p>
+    <p>Sexo: {{ suino.sex }}</p>
+    <p>Idade: {{ suino.birth | calcularIdadeMeses }}</p>
+    <button (click)="editarSuino(suino.id)">Editar</button>
+    <button (click)="excluirSuino(suino.id)">Excluir</button>
+    <hr>
+</div>
+
