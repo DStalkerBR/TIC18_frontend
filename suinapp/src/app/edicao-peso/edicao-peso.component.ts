@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { DataBaseService } from '../database.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { Weight } from '../models/pig.model';
+import { Message } from 'primeng/api';
 
 @Component({
   selector: 'app-edicao-peso',
@@ -13,6 +14,7 @@ export class EdicaoPesoComponent {
   weightForm!: FormGroup;
   id: string | null = null;
   weightToEdit: any = null;
+  msgs : Message[] = [];
   
   constructor(private databaseService: DataBaseService, private route: ActivatedRoute) {
   }
@@ -52,10 +54,11 @@ export class EdicaoPesoComponent {
       );
       this.databaseService.put(this.id!, weight).subscribe(
         (response) => {
-          alert('Peso editado com sucesso!');
+          this.msgs = [{severity:'success', summary:'Sucesso', detail:'Peso editado com sucesso'}];
           console.log(response);
         },
         (error) => {
+          this.msgs = [{severity:'error', summary:'Erro', detail:'Erro ao editar peso'}];
           console.error(error);
         }
       );

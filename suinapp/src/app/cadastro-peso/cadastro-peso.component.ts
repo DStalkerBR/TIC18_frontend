@@ -2,17 +2,18 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { DataBaseService } from '../database.service';
 import { Pig, Weight } from '../models/pig.model';
-import { map } from 'rxjs';
+import { Message } from 'primeng/api';
+
 
 @Component({
   selector: 'app-cadastro-peso',
-  // usar primeng para fazer o formulario de peso, o peso terá que ser cadastrado para cada suino
   templateUrl: './cadastro-peso.component.html',
   styleUrls: ['./cadastro-peso.component.css']
 
 })
 export class CadastroPesoComponent implements OnInit {
   weightForm!: FormGroup;
+  msgs : Message [] = [];
 
   constructor(private databaseService: DataBaseService) { 
   }
@@ -48,10 +49,11 @@ export class CadastroPesoComponent implements OnInit {
           );
           this.databaseService.post(weight).subscribe(
             (response) => {
-              alert('Peso cadastrado com sucesso!');
+              this.msgs = [{severity:'success', summary:'Sucesso', detail:'Peso cadastrado com sucesso'}];
               console.log(response);
             },
             (error) => {
+              this.msgs = [{severity:'error', summary:'Erro', detail:'Erro ao cadastrar peso'}];
               console.error(error);
             }
           );

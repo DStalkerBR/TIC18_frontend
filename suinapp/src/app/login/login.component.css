@@ -1,5 +1,3 @@
-/* login.component.css */
-
 .card {
   width: 100%;
   max-width: 400px;
@@ -27,7 +25,6 @@
 }
 
 .submit-buttons {
-  /* sao 2 divs contendo botoes, devem estar um do lado do outro e separados */
   display: flex;
   justify-content: space-between;
 }

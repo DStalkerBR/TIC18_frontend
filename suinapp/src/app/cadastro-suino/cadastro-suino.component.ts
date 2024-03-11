@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { DataBaseService } from '../database.service';
 import { Pig } from '../models/pig.model';
+import { Message } from 'primeng/api';
 
 @Component({
   selector: 'app-cadastro-suino',
@@ -19,6 +20,7 @@ export class CadastroSuinoComponent {
     { name: 'M' },
     { name: 'F' }
   ];
+  msgs : Message[] = [];
 
   constructor(private databaseService: DataBaseService) {
     this.cadastroSuinoForm = new FormGroup({
@@ -50,10 +52,11 @@ export class CadastroSuinoComponent {
     );
     this.databaseService.post(pig).subscribe(
       (response) => {
-        alert('Suíno cadastrado com sucesso!');
+        this.msgs = [{severity:'success', summary:'Sucesso', detail:'Suino cadastrado com sucesso'}];
         console.log(response);
       },
       (error) => {
+        this.msgs = [{severity:'error', summary:'Erro', detail:'Erro ao cadastrar suino'}];
         console.log(error);
       }
     );

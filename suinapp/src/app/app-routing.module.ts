@@ -15,7 +15,7 @@ const routes: Routes = [
   { path: 'cadastro-peso', component: CadastroPesoComponent },
   { path: 'edicao-peso/:id', component: EdicaoPesoComponent },
   { path: 'listar-suinos', component: ListarSuinosComponent },
-  { path: 'pesagem', component: PesagemComponent },
+  { path: 'pesagem/:id', component: PesagemComponent },
   { path: 'cadastrosuino', component: CadastroSuinoComponent },
   { path: 'editar-suino/:id', component: EditarSuinosComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' }

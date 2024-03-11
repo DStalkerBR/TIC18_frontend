@@ -2,6 +2,7 @@
     <div class="p-col-12 p-md-6">
         <div class="card" style="margin-top: 2em;">
             <p-panel header="Cadastro de Suíno">
+                <p-messages [(value)]="msgs"></p-messages>
                 <form [formGroup]="cadastroSuinoForm" (ngSubmit)="onSubmit()">
                     <div class="p-fluid p-formgrid p-grid">
                         <div class="p-field p-col-12 p-md-6">

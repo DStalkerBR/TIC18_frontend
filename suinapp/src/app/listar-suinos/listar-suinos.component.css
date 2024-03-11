@@ -1,11 +1,9 @@
-/* Reset de estilos para garantir consistência entre navegadores */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
   }
   
-  /* Estilos gerais da tabela e contêiner */
   .table-container {
     margin: 20px;
   }
@@ -21,7 +19,6 @@
     text-align: left;
   }
   
-  /* Estilos para os campos de filtro */
   .filter-container {
     display: flex;
     flex-direction: column;
@@ -45,10 +42,6 @@
     margin-top: 10px;
   }
   
-  /* Estilização dos botões */
   p-button {
     margin-right: 5px;
-  }
-  
-  /* Adicione mais estilos conforme necessário */
-  
+  }  

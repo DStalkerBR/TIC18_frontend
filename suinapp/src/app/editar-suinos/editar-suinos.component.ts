@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { DataBaseService } from '../database.service';
 import { Pig } from '../models/pig.model';
 import { ActivatedRoute } from '@angular/router';
+import { Message } from 'primeng/api';
 
 @Component({
   selector: 'app-editar-suinos',
@@ -13,6 +14,7 @@ export class EditarSuinosComponent {
   edicaoSuinoForm: FormGroup;
   id: string | null = null;
   pigToEdit: any = null;
+  msgs: Message[] = [];
   statusValues = [
     { name: 'Ativo' },
     { name: 'Vendido' },
@@ -39,7 +41,6 @@ export class EditarSuinosComponent {
       this.databaseService.get(this.id!, 'Pig').subscribe(
         (response) => {
           this.pigToEdit = response;
-          console.log(this.pigToEdit);
           this.edicaoSuinoForm.setValue({
             brincoAnimal: this.pigToEdit.id,
             brincoPai: this.pigToEdit.father,
@@ -57,6 +58,7 @@ export class EditarSuinosComponent {
   }
 
   onSubmit(){
+   
     const pig = new Pig(
       this.edicaoSuinoForm.value.brincoAnimal,
       this.edicaoSuinoForm.value.brincoPai,
@@ -68,10 +70,11 @@ export class EditarSuinosComponent {
     );
     this.databaseService.put(this.id!, pig).subscribe(
       (response) => {
-        alert('Suíno editado com sucesso!');
+        this.msgs = [{ severity: 'success', summary: 'Sucesso', detail: 'Suíno editado com sucesso!' }];
         console.log(response);
       },
       (error) => {
+        this.msgs = [{ severity: 'error', summary: 'Erro', detail: 'Erro ao editar suíno!' }];
         console.log(error);
       }
     );

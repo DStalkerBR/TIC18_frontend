@@ -1,1 +1,10 @@
-<p-chart type="line" [data]="chartData" [options]="chartOptions"></p-chart>
+<p-chart type="line" [data]="chartData" [options]="chartOptions" *ngIf="hasWeight"></p-chart>
+<div class="p-message p-message-info">
+    <i class="pi pi-info-circle"></i>
+    <span>Clique nos pontos do gráfico para editar o peso.</span>
+</div>
+
+<div *ngIf="!hasWeight" class="p-message p-message-info">
+    <i class="pi pi-info-circle"></i>
+    <span>Não há pesos registrados para este suíno.</span>
+</div>

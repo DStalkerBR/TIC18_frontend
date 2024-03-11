@@ -62,6 +62,7 @@
           <td>{{ suino.status }}</td>
           <td>{{ suino.birth | calcularIdadeMeses }}</td>
           <td class="botoes">
+            <p-button routerLink="/pesagem/{{ suino.id }}" label="Pesagem" severity="warning"></p-button>
             <p-button routerLink="/editar-suino/{{ suino.key }}" label="Editar" class="p-button-success"></p-button>
             <p-button (click)="excluirSuino(suino.key)" label="Excluir" severity="danger"></p-button>
           </td>

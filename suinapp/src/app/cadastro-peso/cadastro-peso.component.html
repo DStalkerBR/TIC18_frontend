@@ -3,6 +3,7 @@
         <div class="card" style="margin-top: 2em;">
             <p-panel header="Cadastro de Peso">
                 <form [formGroup]="weightForm" (ngSubmit)="onSubmit()">
+                    <p-messages [(value)]="msgs"></p-messages>
                     <div class="p-fluid p-formgrid p-grid">
                         <div class="p-field p-col-12 p-md-6">
                             <label for="brinco">Brinco do Suíno</label>
