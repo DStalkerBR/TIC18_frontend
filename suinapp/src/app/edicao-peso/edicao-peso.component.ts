@@ -52,7 +52,7 @@ export class EdicaoPesoComponent {
         new Date(this.weightForm.value.data).toLocaleDateString(),
         this.weightForm.value.peso
       );
-      this.databaseService.put(this.id!, weight).subscribe(
+      this.databaseService.put(this.id!, weight, 'Weight').subscribe(
         (response) => {
           this.msgs = [{severity:'success', summary:'Sucesso', detail:'Peso editado com sucesso'}];
           console.log(response);
