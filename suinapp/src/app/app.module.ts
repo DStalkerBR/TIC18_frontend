@@ -7,6 +7,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http'
 
 import { ButtonModule } from 'primeng/button';
 import { CheckboxModule } from 'primeng/checkbox';
+import { DropdownModule } from 'primeng/dropdown';
 import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InputTextModule } from 'primeng/inputtext';
@@ -18,6 +19,7 @@ import { HomeComponent } from './home/home.component';
 import { PanelModule } from 'primeng/panel';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ListarSuinosComponent } from './listar-suinos/listar-suinos.component';
+import { CadastroSuinoComponent } from './cadastro-suino/cadastro-suino.component';
 import { AuthInterceptor } from './auth.interceptor';
 import { CalcularIdadeMesesPipe } from './calcular-idade-meses.pipe';
 import { PesagemComponent } from './pesagem/pesagem.component';
@@ -33,7 +35,7 @@ import { ChartModule } from 'primeng/chart';
     ListarSuinosComponent,
     CalcularIdadeMesesPipe,
     PesagemComponent,
-    
+    CadastroSuinoComponent
   ],
   imports: [
     BrowserModule,
@@ -50,6 +52,7 @@ import { ChartModule } from 'primeng/chart';
     FormsModule,
     ChartModule,
     BrowserModule
+    DropdownModule
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],
   bootstrap: [AppComponent]
