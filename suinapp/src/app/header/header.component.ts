@@ -17,6 +17,6 @@ export class HeaderComponent implements OnInit {
       { label: 'Listar Suinos', routerLink: '/listar-suinos' },
       { label: 'Pesagem', routerLink: '/pesagem' },
       { label: 'Cadastro Suinos', routerLink: '/cadastrosuino' }
-    ];
+      ];
   }
 }

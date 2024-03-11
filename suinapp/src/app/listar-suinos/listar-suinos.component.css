@@ -1,0 +1,54 @@
+/* Reset de estilos para garantir consistência entre navegadores */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Estilos gerais da tabela e contêiner */
+  .table-container {
+    margin: 20px;
+  }
+  
+  p-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+  
+  th, td {
+    padding: 8px;
+    text-align: left;
+  }
+  
+  /* Estilos para os campos de filtro */
+  .filter-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+  }
+  
+  label {
+    margin-bottom: 5px;
+  }
+  
+  input[type="text"] {
+    padding: 5px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  .botoes {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+  }
+  
+  /* Estilização dos botões */
+  p-button {
+    margin-right: 5px;
+  }
+  
+  /* Adicione mais estilos conforme necessário */
+  

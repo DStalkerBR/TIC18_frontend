@@ -7,6 +7,7 @@ import { EdicaoPesoComponent } from './edicao-peso/edicao-peso.component';
 import { ListarSuinosComponent } from './listar-suinos/listar-suinos.component';
 import { PesagemComponent } from './pesagem/pesagem.component';
 import { CadastroSuinoComponent } from './cadastro-suino/cadastro-suino.component';
+import { EditarSuinosComponent } from './editar-suinos/editar-suinos.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'listar-suinos', component: ListarSuinosComponent },
   { path: 'pesagem', component: PesagemComponent },
   { path: 'cadastrosuino', component: CadastroSuinoComponent },
+  { path: 'editar-suino/:id', component: EditarSuinosComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' }
 ];
 

@@ -27,6 +27,10 @@ import { EdicaoPesoComponent } from './edicao-peso/edicao-peso.component';
 import { CalcularIdadeMesesPipe } from './calcular-idade-meses.pipe';
 import { PesagemComponent } from './pesagem/pesagem.component';
 import { ChartModule } from 'primeng/chart';
+import { DataViewModule } from 'primeng/dataview';
+import { CardModule } from 'primeng/card';
+import { TableModule } from 'primeng/table';
+import { EditarSuinosComponent } from './editar-suinos/editar-suinos.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +44,8 @@ import { ChartModule } from 'primeng/chart';
     ListarSuinosComponent,
     CalcularIdadeMesesPipe,
     PesagemComponent,
-    CadastroSuinoComponent
+    CadastroSuinoComponent,
+    EditarSuinosComponent
   ],
   imports: [
     BrowserModule,
@@ -59,7 +64,9 @@ import { ChartModule } from 'primeng/chart';
     FormsModule,
     ChartModule,
     BrowserModule,
-    DropdownModule
+    DropdownModule,
+    DataViewModule,
+    TableModule
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],
   bootstrap: [AppComponent]

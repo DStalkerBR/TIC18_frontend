@@ -8,20 +8,44 @@ import { DataBaseService } from '../database.service';
 })
 export class ListarSuinosComponent implements OnInit {
   suinos: any[] = [];
-  filtroSuinoId: string = '';
-  resultadoPesquisa: any[] = [];
-
+  
   constructor(private suinoService: DataBaseService) { }
 
   ngOnInit(): void {
     this.carregarSuinos();
   }
 
+  filter(event: any, field: string) {
+
+    const value = event?.target?.value || '';
+    
+    console.log('Filtrando por: ', value, field);
+
+    if (value === '') {
+      this.carregarSuinos();
+      return;
+    }
+
+    console.log('Tipo de variavel: ', typeof value);
+
+    this.suinos = this.suinos.filter((suino) => {
+      return suino[field].toString().toLowerCase().includes(value.toString().toLowerCase());
+    });
+
+    console.log('Suínos filtrados: ', this.suinos);    
+  }
+
   carregarSuinos() {
-    this.suinoService.getAll('Pig').subscribe((suinos: any[]) => {
-      this.suinos = Object.values(suinos);
-      console.log('Suínos carregados: ', suinos);
-    },
+    this.suinoService.getAll('Pig').subscribe(
+      (suinos: any[]) => {
+        this.suinos = Object.keys(suinos).map((key : any) => {
+          return {
+            key: key,
+            ...suinos[key]
+          };
+        });
+        console.log('Suínos carregados: ', this.suinos);
+      },
       (error) => {
         console.error('Erro ao carregar suínos: ', error);
       }
@@ -40,8 +64,5 @@ export class ListarSuinosComponent implements OnInit {
     );
   }
 
-  editarSuino(key: string) {
-    console.log('Editar suíno: ', key);
-  }
 
 }
