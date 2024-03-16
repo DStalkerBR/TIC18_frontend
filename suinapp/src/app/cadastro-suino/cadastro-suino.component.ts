@@ -50,7 +50,7 @@ export class CadastroSuinoComponent {
       this.cadastroSuinoForm.value.status.name,
       this.cadastroSuinoForm.value.sexo.name
     );
-    this.databaseService.post(pig).subscribe(
+    this.databaseService.post(pig, 'Pig').subscribe(
       (response) => {
         this.msgs = [{severity:'success', summary:'Sucesso', detail:'Suino cadastrado com sucesso'}];
         console.log(response);

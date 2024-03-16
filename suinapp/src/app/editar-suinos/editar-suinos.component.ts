@@ -68,7 +68,7 @@ export class EditarSuinosComponent {
       this.edicaoSuinoForm.value.status.name,
       this.edicaoSuinoForm.value.sexo.name
     );
-    this.databaseService.put(this.id!, pig).subscribe(
+    this.databaseService.put(this.id!, pig, 'Pig').subscribe(
       (response) => {
         this.msgs = [{ severity: 'success', summary: 'Sucesso', detail: 'Suíno editado com sucesso!' }];
         console.log(response);

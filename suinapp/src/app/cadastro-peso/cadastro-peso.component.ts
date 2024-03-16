@@ -47,7 +47,7 @@ export class CadastroPesoComponent implements OnInit {
             new Date(this.weightForm.value.data).toLocaleDateString(),
             this.weightForm.value.peso
           );
-          this.databaseService.post(weight).subscribe(
+          this.databaseService.post(weight, 'Weight').subscribe(
             (response) => {
               this.msgs = [{severity:'success', summary:'Sucesso', detail:'Peso cadastrado com sucesso'}];
               console.log(response);
