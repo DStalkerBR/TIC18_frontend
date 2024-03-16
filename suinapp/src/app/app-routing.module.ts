@@ -9,6 +9,7 @@ import { PesagemComponent } from './pesagem/pesagem.component';
 import { CadastroSuinoComponent } from './cadastro-suino/cadastro-suino.component';
 import { EditarSuinosComponent } from './editar-suinos/editar-suinos.component';
 import { AuthGuard } from './auth.guard';
+import { CadastroSessaoComponent } from './cadastro-sessao/cadastro-sessao.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'pesagem/:id', component: PesagemComponent, canActivate: [AuthGuard]},
   { path: 'cadastrosuino', component: CadastroSuinoComponent, canActivate: [AuthGuard]},
   { path: 'editar-suino/:id', component: EditarSuinosComponent, canActivate: [AuthGuard]},
+  { path: 'cadastro-sessao/:id', component: CadastroSessaoComponent, canActivate: [AuthGuard]},
   { path: '', redirectTo: '/home', pathMatch: 'full' }
 ];
 

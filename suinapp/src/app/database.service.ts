@@ -6,7 +6,7 @@ import { Observable, catchError, map, of } from 'rxjs';
   providedIn: 'root',
 })
 export class DataBaseService {
-  private readonly firebaseURL = 'https://suinofarm-default-rtdb.firebaseio.com/';
+  private readonly firebaseURL = 'https://residencia-79e63.firebaseapp.com/';
 
   constructor(private http: HttpClient) {}
 

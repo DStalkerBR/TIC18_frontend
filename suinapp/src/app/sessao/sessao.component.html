@@ -1,0 +1,15 @@
+<div class="p-fluid p-grid p-justify-center">
+    <div class="p-col-12 p-md-6">
+        <div class="card" style="margin-top: 2em;">
+            <p-panel header="Cadastro Sessão">
+                <p-messages [(value)]="msgs"></p-messages>
+                <form [formGroup]="cadastroSessaoForm" (ngSubmit)="onSubmit()">
+                    <div class="p-field p-col-12 p-md-6">
+                        <label for="tarefas">Tarefas</label>
+                        <p-dropdown formControlName="tarefas" [options]="taskValues" aria-placeholder="Selecione"></p-dropdown>
+                    </div>
+                </form>
+            </p-panel>
+        </div>
+    </div>
+</div>
