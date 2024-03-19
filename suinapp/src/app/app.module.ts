@@ -30,7 +30,6 @@ import { ChartModule } from 'primeng/chart';
 import { TableModule } from 'primeng/table';
 import { EditarSuinosComponent } from './editar-suinos/editar-suinos.component';
 import { MessagesModule } from 'primeng/messages';
-import { SessaoComponent } from './sessao/sessao.component';
 import { CadastroSessaoComponent } from './cadastro-sessao/cadastro-sessao.component';
 
 @NgModule({
@@ -47,7 +46,6 @@ import { CadastroSessaoComponent } from './cadastro-sessao/cadastro-sessao.compo
     PesagemComponent,
     CadastroSuinoComponent,
     EditarSuinosComponent,
-    SessaoComponent,
     CadastroSessaoComponent
   ],
   imports: [

@@ -14,8 +14,7 @@ import { AuthService } from './auth/auth.service';
 })
 export class AppComponent {
   title = 'suinapp';
-/*
   constructor(authService: AuthService) {
     authService.autoLogin();
-  }*/
+  }
 }
