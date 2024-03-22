@@ -35,8 +35,9 @@ export class PesagemComponent implements OnInit {
         });
 
         this.pesos.sort((a: any, b: any) => {
-          return new Date(a.date).getTime() - new Date(b.date).getTime();
+          return this.formatDate(a.date).getTime() - this.formatDate(b.date).getTime();
         });
+        
         this.chartData = {
           labels: this.pesos.map((peso: any) => peso.date),
           datasets: [
@@ -86,6 +87,11 @@ export class PesagemComponent implements OnInit {
         this.router.navigate(['/edicao-peso', this.pesos[index].key]);
       });
     }
+  }
+
+  private formatDate(date: string) {
+    const [day, month, year] = date.split('/');
+    return new Date(`${month}/${day}/${year}`);
   }
 
 

@@ -63,8 +63,8 @@ export class EditarSuinosComponent {
       this.edicaoSuinoForm.value.brincoAnimal,
       this.edicaoSuinoForm.value.brincoPai,
       this.edicaoSuinoForm.value.brincoMae,
-      new Date(this.edicaoSuinoForm.value.dataNasc).toLocaleDateString(),
-      new Date(this.edicaoSuinoForm.value.dataSaida).toLocaleDateString(),
+      this.edicaoSuinoForm.value.dataNasc,
+      this.edicaoSuinoForm.value.dataSaida,
       this.edicaoSuinoForm.value.status.name,
       this.edicaoSuinoForm.value.sexo.name
     );

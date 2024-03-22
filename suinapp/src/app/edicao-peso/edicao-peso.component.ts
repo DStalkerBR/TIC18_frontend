@@ -46,12 +46,14 @@ export class EdicaoPesoComponent {
 
   onSubmit() {
     if (this.weightForm.valid) {
+      console.log(this.weightForm.value.data);
       const weight = new Weight(
         this.weightToEdit.id,        
         this.weightForm.value.brinco,
         new Date(this.weightForm.value.data).toLocaleDateString(),
         this.weightForm.value.peso
       );
+      console.log(weight);
       this.databaseService.put(this.id!, weight, 'Weight').subscribe(
         (response) => {
           this.msgs = [{severity:'success', summary:'Sucesso', detail:'Peso editado com sucesso'}];
