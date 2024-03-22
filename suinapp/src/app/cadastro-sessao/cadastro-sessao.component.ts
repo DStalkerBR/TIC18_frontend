@@ -3,87 +3,84 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Message } from 'primeng/api';
 import { DataBaseService } from '../database.service';
 import { Sessao } from '../models/sessao.model';
+import { Observer } from 'rxjs';
 
 @Component({
   selector: 'app-cadastro-sessao',
   templateUrl: './cadastro-sessao.component.html',
-  styles: ``
+  styleUrls: ['./cadastro-sessao.component.css']
 })
 export class CadastroSessaoComponent {
-  cadastroSessaoForm: FormGroup;
   sessaoForm!: FormGroup;
-  pigValues:any [] = [];
+  pigValues: any[] = [];
   taskValues = [
     { name: 'Vacinação Contra Raiva' },
     { name: 'Dar Banho' },
     { name: 'Alimentar' }
   ];
-  msgs : Message[] = [];
+  msgs: Message[] = [];
   constructor(private dataBaseService: DataBaseService) {
-    this.cadastroSessaoForm = new FormGroup({
-      tarefas: new FormControl('',[Validators.required])
-    })
-    this.cadastroSessaoForm.valueChanges.subscribe(
-      (value) => {
-        console.log(value);
-      });
+
   }
 
   ngOnInit(): void {
     this.sessaoForm = new FormGroup({
       id: new FormControl(null),
       data: new FormControl(null, [Validators.required]),
-      brincos: new FormControl(null, [Validators.required, Validators.pattern(/^[0-9]{1,3}$/)]),
+      descricao: new FormControl(null, [Validators.required]),
+      brincos: new FormControl(null, [Validators.required]),
       tarefas: new FormControl(null, [Validators.required])
     });
     this.getAllBrincos();
   }
 
-  onSubmit(){
-    let pigs : any = null;
-    this.dataBaseService.getByColumn(this.sessaoForm.value.brincos, 'Pig', 'id').subscribe(
-      (response) => {
-        pigs = response;
-        console.log("Porco encontrado", pigs);
+  onSubmit() {
+    // convertendo os valores dos brincos e tarefas para um array de strings
+    const brincos = this.sessaoForm.value.brincos.map((item: any) => item.name);
+    const tarefas = this.sessaoForm.value.tarefas.map((item: any) => item.name);
 
-        if (Object.keys(pigs).length === 0) {
-          alert('Porco não encontrado');
-          return;
-        }
+    if (this.sessaoForm.valid) {
+      const sessao = {
+        id: this.sessaoForm.value.id,
+        data: new Date(this.sessaoForm.value.data).toLocaleDateString(),
+        descricao: this.sessaoForm.value.descricao,
+        brincos: brincos,
+        tarefas: brincos.flatMap((brinco: any) =>
+          tarefas.map((tarefa: any) => ({ brinco, descricao: tarefa, status: false }))
+        )
+      };
 
-        if (this.sessaoForm.valid) {
-          const sessao = new Sessao(
-            this.sessaoForm.value.id,
-            new Date(this.sessaoForm.value.data).toLocaleDateString(),
-            this.sessaoForm.value.brincos,
-            this.sessaoForm.value.tarefas
-          );
-          this.dataBaseService.post(sessao, 'Sessao').subscribe(
-            (response) => {
-              this.msgs = [{severity:'success', summary:'Sucesso', detail:'Sessão cadastrada com sucesso'}];
-              console.log(response);
-            },
-            (error) => {
-              this.msgs = [{severity:'error', summary:'Erro', detail:'Erro ao cadastrar sessão'}];
-              console.error(error);
-            }
-          );
+      // observer para tratar a resposta do servidor
+      const observer: Observer<any> = {
+        next: (response) => {
+          console.log(response);
+        },
+        error: (error) => {
+          this.msgs = [{ severity: 'error', summary: 'Erro', detail: 'Erro ao cadastrar a sessão' }];
+          console.error(error);
+        },
+        complete: () => {
+          this.msgs = [{ severity: 'success', summary: 'Sucesso', detail: 'Sessão cadastrada com sucesso' }];
         }
-      },
-      (error) => {
-        console.error(error);
-      }
-    );
+      };
+      this.dataBaseService.post(sessao, 'Sessao').subscribe(observer);
+    }
   }
-  getAllBrincos():void{
-    this.dataBaseService.getByColumn('','Pig','brinco').subscribe(
-      brincos=>{
-        this.pigValues = brincos.map((brinco:any)=>brinco.id);
+
+  getAllBrincos(): void {
+    const observer: Observer<any> = {
+      next: (response) => {
+        this.pigValues = Object.values(response).map((item: any) => ({ name: item.id }));
       },
-      error=>{
-        console.error("error ao buscar brincos", error);
+      error: (error) => {
+        console.error(error);
+      },
+      complete: () => {
+        console.log('complete');
       }
-    );
+    };
+
+    this.dataBaseService.getAll('Pig').subscribe(observer);
   }
 
 }

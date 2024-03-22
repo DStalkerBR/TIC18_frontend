@@ -31,6 +31,7 @@ import { TableModule } from 'primeng/table';
 import { EditarSuinosComponent } from './editar-suinos/editar-suinos.component';
 import { MessagesModule } from 'primeng/messages';
 import { CadastroSessaoComponent } from './cadastro-sessao/cadastro-sessao.component';
+import { MultiSelectModule } from 'primeng/multiselect';
 
 @NgModule({
   declarations: [
@@ -69,6 +70,7 @@ import { CadastroSessaoComponent } from './cadastro-sessao/cadastro-sessao.compo
     TableModule,
     ChartModule,
     MessagesModule,
+    MultiSelectModule
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],
   bootstrap: [AppComponent]

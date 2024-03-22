@@ -1,12 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, catchError, map, of } from 'rxjs';
+import { Observable } from 'rxjs';
+import { config } from './app.config';
 
 @Injectable({
   providedIn: 'root',
 })
 export class DataBaseService {
-  private readonly firebaseURL = 'https://residencia-79e63.firebaseapp.com/';
+  private readonly firebaseURL = config.firebaseURL;
 
   constructor(private http: HttpClient) {}
 
