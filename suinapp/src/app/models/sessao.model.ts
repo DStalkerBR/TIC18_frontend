@@ -1,6 +1,6 @@
 export class Sessao{
     constructor(
-        public id : number,
+        public id : string,
         public data : string,
         public descricao : string,
         public brincos : string[],

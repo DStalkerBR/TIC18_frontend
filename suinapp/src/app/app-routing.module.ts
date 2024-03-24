@@ -10,17 +10,20 @@ import { CadastroSuinoComponent } from './cadastro-suino/cadastro-suino.componen
 import { EditarSuinosComponent } from './editar-suinos/editar-suinos.component';
 import { AuthGuard } from './auth.guard';
 import { CadastroSessaoComponent } from './cadastro-sessao/cadastro-sessao.component';
+import { ListarSessoesComponent } from './listar-sessoes/listar-sessoes.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'home', component: HomeComponent },
   { path: 'cadastro-peso', component: CadastroPesoComponent, canActivate: [AuthGuard]},
+  { path: 'cadastro-peso/:id', component: CadastroPesoComponent, canActivate: [AuthGuard]},
   { path: 'edicao-peso/:id', component: EdicaoPesoComponent, canActivate: [AuthGuard]},
   { path: 'listar-suinos', component: ListarSuinosComponent, canActivate: [AuthGuard]},
   { path: 'pesagem/:id', component: PesagemComponent, canActivate: [AuthGuard]},
   { path: 'cadastrosuino', component: CadastroSuinoComponent, canActivate: [AuthGuard]},
   { path: 'editar-suino/:id', component: EditarSuinosComponent, canActivate: [AuthGuard]},
   { path: 'cadastro-sessao', component: CadastroSessaoComponent, canActivate: [AuthGuard]},
+  { path: 'listar-sessoes', component: ListarSessoesComponent, canActivate: [AuthGuard]},
   { path: '', redirectTo: '/home', pathMatch: 'full' }
 ];
 

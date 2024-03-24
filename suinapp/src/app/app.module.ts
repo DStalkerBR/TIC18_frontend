@@ -32,6 +32,10 @@ import { EditarSuinosComponent } from './editar-suinos/editar-suinos.component';
 import { MessagesModule } from 'primeng/messages';
 import { CadastroSessaoComponent } from './cadastro-sessao/cadastro-sessao.component';
 import { MultiSelectModule } from 'primeng/multiselect';
+import { ListarSessoesComponent } from './listar-sessoes/listar-sessoes.component';
+import { PaginatorModule } from 'primeng/paginator';
+import { ConfirmationService } from 'primeng/api';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
 
 @NgModule({
   declarations: [
@@ -47,7 +51,8 @@ import { MultiSelectModule } from 'primeng/multiselect';
     PesagemComponent,
     CadastroSuinoComponent,
     EditarSuinosComponent,
-    CadastroSessaoComponent
+    CadastroSessaoComponent,
+    ListarSessoesComponent
   ],
   imports: [
     BrowserModule,
@@ -70,9 +75,11 @@ import { MultiSelectModule } from 'primeng/multiselect';
     TableModule,
     ChartModule,
     MessagesModule,
-    MultiSelectModule
+    MultiSelectModule,
+    PaginatorModule,
+    ConfirmDialogModule
   ],
-  providers: [{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}, ConfirmationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
