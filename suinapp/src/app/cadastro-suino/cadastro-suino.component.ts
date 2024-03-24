@@ -28,7 +28,7 @@ export class CadastroSuinoComponent {
       brincoPai: new FormControl(null, [Validators.required, Validators.pattern(/^[0-9]*$/)]),
       brincoMae: new FormControl(null, [Validators.required, Validators.pattern(/^[0-9]*$/)]),
       dataNasc: new FormControl(null, [Validators.required]),
-      dataSaida: new FormControl(null, [Validators.required]),
+      dataSaida: new FormControl(null),
       status: new FormControl(null, [Validators.required]),
       sexo: new FormControl(null, [Validators.required])
       })
@@ -45,8 +45,8 @@ export class CadastroSuinoComponent {
       this.cadastroSuinoForm.value.brincoAnimal,
       this.cadastroSuinoForm.value.brincoPai,
       this.cadastroSuinoForm.value.brincoMae,
-      new Date(this.cadastroSuinoForm.value.dataNasc).toLocaleDateString(),
-      new Date(this.cadastroSuinoForm.value.dataSaida).toLocaleDateString(),
+      this.cadastroSuinoForm.value.dataNasc,
+      this.cadastroSuinoForm.value.dataSaida,
       this.cadastroSuinoForm.value.status.name,
       this.cadastroSuinoForm.value.sexo.name
     );

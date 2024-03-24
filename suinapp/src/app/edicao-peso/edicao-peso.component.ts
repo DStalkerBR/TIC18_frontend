@@ -34,7 +34,7 @@ export class EdicaoPesoComponent {
         console.log(this.weightToEdit);
         this.weightForm.setValue({
           brinco: this.weightToEdit.pig,
-          data: this.weightToEdit.date,
+          data: new Date(this.weightToEdit.date),
           peso: this.weightToEdit.weight
         });
       },
@@ -50,7 +50,7 @@ export class EdicaoPesoComponent {
       const weight = new Weight(
         this.weightToEdit.id,        
         this.weightForm.value.brinco,
-        new Date(this.weightForm.value.data).toLocaleDateString(),
+        this.weightForm.value.data,
         this.weightForm.value.peso
       );
       console.log(weight);

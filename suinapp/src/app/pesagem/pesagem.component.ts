@@ -35,11 +35,11 @@ export class PesagemComponent implements OnInit {
         });
 
         this.pesos.sort((a: any, b: any) => {
-          return this.formatDate(a.date).getTime() - this.formatDate(b.date).getTime();
+          return new Date(a.date).getTime() - new Date(b.date).getTime();          
         });
         
         this.chartData = {
-          labels: this.pesos.map((peso: any) => peso.date),
+          labels: this.pesos.map((peso: any) => new Date(peso.date).toLocaleDateString()),
           datasets: [
             {
               label: 'Peso do Suino de Brinco: ' + this.id,
@@ -88,12 +88,6 @@ export class PesagemComponent implements OnInit {
       });
     }
   }
-
-  private formatDate(date: string) {
-    const [day, month, year] = date.split('/');
-    return new Date(`${month}/${day}/${year}`);
-  }
-
 
 }
 

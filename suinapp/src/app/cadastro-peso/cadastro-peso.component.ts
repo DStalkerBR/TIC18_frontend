@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { DataBaseService } from '../database.service';
-import { Pig, Weight } from '../models/pig.model';
+import { Weight } from '../models/pig.model';
 import { Message } from 'primeng/api';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -15,7 +16,7 @@ export class CadastroPesoComponent implements OnInit {
   weightForm!: FormGroup;
   msgs : Message [] = [];
 
-  constructor(private databaseService: DataBaseService) { 
+  constructor(private databaseService: DataBaseService, private route: ActivatedRoute) {
   }
 
   ngOnInit(): void {
@@ -25,6 +26,14 @@ export class CadastroPesoComponent implements OnInit {
       data: new FormControl(null, [Validators.required]),
       peso: new FormControl(null, [Validators.required, Validators.pattern(/^(\d{1,4}|\d{1,4}\.\d{1,3})$/)])
     });
+
+    let pigBrinco = this.route.snapshot.paramMap.get('id');
+    
+    if (pigBrinco) {
+      this.weightForm.patchValue({
+        brinco: parseInt(pigBrinco)
+      });
+    }
   }
 
   onSubmit() {
@@ -44,7 +53,7 @@ export class CadastroPesoComponent implements OnInit {
           const weight = new Weight(
             this.weightForm.value.id,
             this.weightForm.value.brinco,
-            new Date(this.weightForm.value.data).toLocaleDateString(),
+            this.weightForm.value.data,
             this.weightForm.value.peso
           );
           this.databaseService.post(weight, 'Weight').subscribe(

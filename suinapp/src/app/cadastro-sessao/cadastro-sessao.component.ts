@@ -40,9 +40,9 @@ export class CadastroSessaoComponent {
     const tarefas = this.sessaoForm.value.tarefas.map((item: any) => item.name);
 
     if (this.sessaoForm.valid) {
-      const sessao = {
+      const sessao : Sessao = {
         id: this.sessaoForm.value.id,
-        data: new Date(this.sessaoForm.value.data).toLocaleDateString(),
+        data: this.sessaoForm.value.data,
         descricao: this.sessaoForm.value.descricao,
         brincos: brincos,
         tarefas: brincos.flatMap((brinco: any) =>

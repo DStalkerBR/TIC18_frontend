@@ -56,8 +56,8 @@
           <td> <strong>{{ suino.id }} </strong></td>
           <td>{{ suino.father }}</td>
           <td>{{ suino.mother }}</td>
-          <td>{{ suino.birth }}</td>
-          <td>{{ suino.exit }}</td>
+          <td>{{ suino.birth | date: 'dd/MM/yyyy' }}</td>
+          <td>{{ suino.exit | date: 'dd/MM/yyyy' }}</td>
           <td>{{ suino.sex }}</td>
           <td>{{ suino.status }}</td>
           <td>{{ suino.birth | calcularIdadeMeses }}</td>

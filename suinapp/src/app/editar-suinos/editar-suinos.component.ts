@@ -4,6 +4,7 @@ import { DataBaseService } from '../database.service';
 import { Pig } from '../models/pig.model';
 import { ActivatedRoute } from '@angular/router';
 import { Message } from 'primeng/api';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-editar-suinos',
@@ -45,8 +46,8 @@ export class EditarSuinosComponent {
             brincoAnimal: this.pigToEdit.id,
             brincoPai: this.pigToEdit.father,
             brincoMae: this.pigToEdit.mother,
-            dataNasc: this.pigToEdit.birth,
-            dataSaida: this.pigToEdit.exit,
+            dataNasc: new Date(this.pigToEdit.birth),
+            dataSaida: this.pigToEdit.exit ? new Date(this.pigToEdit.exit) : null,
             status: this.statusValues.find((status) => status.name === this.pigToEdit.status),
             sexo: this.sexoValues.find((sexo) => sexo.name === this.pigToEdit.sex)
           });
@@ -58,12 +59,13 @@ export class EditarSuinosComponent {
   }
 
   onSubmit(){
+    console.log(this.edicaoSuinoForm.value.dataNasc);
    
     const pig = new Pig(
       this.edicaoSuinoForm.value.brincoAnimal,
       this.edicaoSuinoForm.value.brincoPai,
       this.edicaoSuinoForm.value.brincoMae,
-      this.edicaoSuinoForm.value.dataNasc,
+      this.edicaoSuinoForm.value.dataNasc, 
       this.edicaoSuinoForm.value.dataSaida,
       this.edicaoSuinoForm.value.status.name,
       this.edicaoSuinoForm.value.sexo.name
