@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Message } from 'primeng/api';
-import { DataBaseService } from '../database.service';
-import { Sessao } from '../models/sessao.model';
+import { DataBaseService } from '../../services/database.service';
+import { Sessao } from '../../models/sessao.model';
 import { Observer } from 'rxjs';
+import { PIG_COLLECTION, SESSAO_COLLECTION } from '../../shared/constants';
 
 @Component({
   selector: 'app-cadastro-sessao',
@@ -63,7 +64,7 @@ export class CadastroSessaoComponent {
           this.msgs = [{ severity: 'success', summary: 'Sucesso', detail: 'Sessão cadastrada com sucesso' }];
         }
       };
-      this.dataBaseService.post(sessao, 'Sessao').subscribe(observer);
+      this.dataBaseService.post(sessao, SESSAO_COLLECTION).subscribe(observer);
     }
   }
 
@@ -80,7 +81,7 @@ export class CadastroSessaoComponent {
       }
     };
 
-    this.dataBaseService.getAll('Pig').subscribe(observer);
+    this.dataBaseService.getAll(PIG_COLLECTION).subscribe(observer);
   }
 
 }

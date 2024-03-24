@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { DataBaseService } from '../database.service';
-import { Pig } from '../models/pig.model';
+import { DataBaseService } from '../../services/database.service';
+import { Pig } from '../../models/pig.model';
 import { Message } from 'primeng/api';
+import { PIG_COLLECTION } from '../../shared/constants';
 
 @Component({
   selector: 'app-cadastro-suino',
@@ -50,7 +51,7 @@ export class CadastroSuinoComponent {
       this.cadastroSuinoForm.value.status.name,
       this.cadastroSuinoForm.value.sexo.name
     );
-    this.databaseService.post(pig, 'Pig').subscribe(
+    this.databaseService.post(pig, PIG_COLLECTION).subscribe(
       (response) => {
         this.msgs = [{severity:'success', summary:'Sucesso', detail:'Suino cadastrado com sucesso'}];
         console.log(response);

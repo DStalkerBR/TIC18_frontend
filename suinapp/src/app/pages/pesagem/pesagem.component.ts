@@ -1,7 +1,8 @@
 import { Component, NgZone, OnInit } from '@angular/core';
 import { PrimeNGConfig } from 'primeng/api';
-import { DataBaseService } from '../database.service';
+import { DataBaseService } from '../../services/database.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { WEIGHT_COLLECTION } from '../../shared/constants';
 
 @Component({
   selector: 'app-pesagem',
@@ -20,7 +21,7 @@ export class PesagemComponent implements OnInit {
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id');
 
-    this.databaseService.getByColumn(this.id!, 'Weight', 'pig').subscribe(
+    this.databaseService.getByColumn(this.id!, WEIGHT_COLLECTION, 'pig').subscribe(
       (response) => {
         if (Object.values(response).length === 0) {
           this.hasWeight = false;

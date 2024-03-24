@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { DataBaseService } from '../database.service';
-import { Weight } from '../models/pig.model';
+import { DataBaseService } from '../../services/database.service';
+import { Weight } from '../../models/pig.model';
 import { Message } from 'primeng/api';
 import { ActivatedRoute } from '@angular/router';
+import { PIG_COLLECTION, WEIGHT_COLLECTION } from '../../shared/constants';
 
 
 @Component({
@@ -39,7 +40,7 @@ export class CadastroPesoComponent implements OnInit {
   onSubmit() {
     let pig: any = null;
   
-    this.databaseService.getByColumn(this.weightForm.value.brinco, 'Pig', 'id').subscribe(
+    this.databaseService.getByColumn(this.weightForm.value.brinco, PIG_COLLECTION, 'id').subscribe(
       (response) => {
         pig = response;
         console.log("Porco encontrado", pig);
@@ -56,7 +57,7 @@ export class CadastroPesoComponent implements OnInit {
             this.weightForm.value.data,
             this.weightForm.value.peso
           );
-          this.databaseService.post(weight, 'Weight').subscribe(
+          this.databaseService.post(weight, WEIGHT_COLLECTION).subscribe(
             (response) => {
               this.msgs = [{severity:'success', summary:'Sucesso', detail:'Peso cadastrado com sucesso'}];
               console.log(response);

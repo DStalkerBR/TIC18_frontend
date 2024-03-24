@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './login/login.component';
-import { HomeComponent } from './home/home.component';
-import { CadastroPesoComponent } from './cadastro-peso/cadastro-peso.component';
-import { EdicaoPesoComponent } from './edicao-peso/edicao-peso.component';
-import { ListarSuinosComponent } from './listar-suinos/listar-suinos.component';
-import { PesagemComponent } from './pesagem/pesagem.component';
-import { CadastroSuinoComponent } from './cadastro-suino/cadastro-suino.component';
-import { EditarSuinosComponent } from './editar-suinos/editar-suinos.component';
-import { AuthGuard } from './auth.guard';
-import { CadastroSessaoComponent } from './cadastro-sessao/cadastro-sessao.component';
-import { ListarSessoesComponent } from './listar-sessoes/listar-sessoes.component';
+import { LoginComponent } from './pages/login/login.component';
+import { HomeComponent } from './pages/home/home.component';
+import { CadastroPesoComponent } from './pages/cadastro-peso/cadastro-peso.component';
+import { EdicaoPesoComponent } from './pages/edicao-peso/edicao-peso.component';
+import { ListarSuinosComponent } from './pages/listar-suinos/listar-suinos.component';
+import { PesagemComponent } from './pages/pesagem/pesagem.component';
+import { CadastroSuinoComponent } from './pages/cadastro-suino/cadastro-suino.component';
+import { EditarSuinosComponent } from './pages/editar-suinos/editar-suinos.component';
+import { AuthGuard } from './core/auth.guard';
+import { CadastroSessaoComponent } from './pages/cadastro-sessao/cadastro-sessao.component';
+import { ListarSessoesComponent } from './pages/listar-sessoes/listar-sessoes.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },

@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { DataBaseService } from '../database.service';
-import { Pig } from '../models/pig.model';
+import { DataBaseService } from '../../services/database.service';
+import { Pig } from '../../models/pig.model';
 import { ActivatedRoute } from '@angular/router';
 import { Message } from 'primeng/api';
 import { DatePipe } from '@angular/common';
+import { PIG_COLLECTION } from '../../shared/constants';
 
 @Component({
   selector: 'app-editar-suinos',
@@ -39,7 +40,7 @@ export class EditarSuinosComponent {
 
       this.id = this.route.snapshot.paramMap.get('id');
 
-      this.databaseService.get(this.id!, 'Pig').subscribe(
+      this.databaseService.get(this.id!, PIG_COLLECTION).subscribe(
         (response) => {
           this.pigToEdit = response;
           this.edicaoSuinoForm.setValue({
@@ -70,7 +71,7 @@ export class EditarSuinosComponent {
       this.edicaoSuinoForm.value.status.name,
       this.edicaoSuinoForm.value.sexo.name
     );
-    this.databaseService.put(this.id!, pig, 'Pig').subscribe(
+    this.databaseService.put(this.id!, pig, PIG_COLLECTION).subscribe(
       (response) => {
         this.msgs = [{ severity: 'success', summary: 'Sucesso', detail: 'Suíno editado com sucesso!' }];
         console.log(response);

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Sessao, Tarefa } from '../models/sessao.model';
-import { DataBaseService } from '../database.service';
+import { Sessao, Tarefa } from '../../models/sessao.model';
+import { DataBaseService } from '../../services/database.service';
 import { ConfirmationService } from 'primeng/api';
+import { SESSAO_COLLECTION } from '../../shared/constants';
 
 interface TarefasPorBrinco {
   [brinco: string]: Tarefa[];
@@ -31,7 +32,7 @@ export class ListarSessoesComponent implements OnInit {
   }
 
   carregarSessoes() {
-    this.databaseService.getAll('Sessao').subscribe({
+    this.databaseService.getAll(SESSAO_COLLECTION).subscribe({
       next: (response: any[]) => {
         this.sessoes = Object.keys(response).map((key: any) => {
           return {
@@ -120,7 +121,7 @@ export class ListarSessoesComponent implements OnInit {
   atualizarSessao(sessaoId: string) {
     const sessao = this.sessoes.find(sessao => sessao.id === sessaoId);
     if (sessao) {
-      this.databaseService.put(sessaoId, sessao, 'Sessao').subscribe({
+      this.databaseService.put(sessaoId, sessao, SESSAO_COLLECTION).subscribe({
         next: (response: any) => console.log(response),
         error: (error) => console.error(error),
         complete: () => console.log('Sessão editada: ', sessao)
@@ -159,7 +160,7 @@ export class ListarSessoesComponent implements OnInit {
   }
 
   excluirSessao(id: string) {
-    this.databaseService.delete(id, 'Sessao').subscribe({
+    this.databaseService.delete(id, SESSAO_COLLECTION).subscribe({
       next: (response: any) => console.log(response),
       error: (error) => console.error(error),
       complete: () => {

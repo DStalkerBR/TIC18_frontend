@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { DataBaseService } from '../database.service';
+import { DataBaseService } from '../../services/database.service';
 import { ActivatedRoute } from '@angular/router';
-import { Weight } from '../models/pig.model';
+import { Weight } from '../../models/pig.model';
 import { Message } from 'primeng/api';
+import { WEIGHT_COLLECTION } from '../../shared/constants';
 
 @Component({
   selector: 'app-edicao-peso',
@@ -28,7 +29,7 @@ export class EdicaoPesoComponent {
 
     this.id = this.route.snapshot.paramMap.get('id');
 
-    this.databaseService.get(this.id!, 'Weight').subscribe(
+    this.databaseService.get(this.id!, WEIGHT_COLLECTION).subscribe(
       (response) => {
         this.weightToEdit = response;
         console.log(this.weightToEdit);
@@ -54,7 +55,7 @@ export class EdicaoPesoComponent {
         this.weightForm.value.peso
       );
       console.log(weight);
-      this.databaseService.put(this.id!, weight, 'Weight').subscribe(
+      this.databaseService.put(this.id!, weight, WEIGHT_COLLECTION).subscribe(
         (response) => {
           this.msgs = [{severity:'success', summary:'Sucesso', detail:'Peso editado com sucesso'}];
           console.log(response);

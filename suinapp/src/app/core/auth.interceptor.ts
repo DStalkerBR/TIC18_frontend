@@ -7,7 +7,7 @@ import {
   HttpParams
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { AuthService } from './auth/auth.service';
+import { AuthService } from '../services/auth.service';
 import { exhaustMap, take } from 'rxjs/operators';
 
 @Injectable()

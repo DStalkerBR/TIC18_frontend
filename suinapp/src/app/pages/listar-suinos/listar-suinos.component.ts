@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { DataBaseService } from '../database.service';
+import { DataBaseService } from '../../services/database.service';
+import { PIG_COLLECTION } from '../../shared/constants';
 
 @Component({
   selector: 'app-listar-suinos',
@@ -36,7 +37,7 @@ export class ListarSuinosComponent implements OnInit {
   }
 
   carregarSuinos() {
-    this.suinoService.getAll('Pig').subscribe(
+    this.suinoService.getAll(PIG_COLLECTION).subscribe(
       (suinos: any[]) => {
         this.suinos = Object.keys(suinos).map((key : any) => {
           return {
@@ -53,7 +54,7 @@ export class ListarSuinosComponent implements OnInit {
   }
 
   excluirSuino(key: string) {
-    this.suinoService.delete(key, 'Pig').subscribe(
+    this.suinoService.delete(key, PIG_COLLECTION).subscribe(
       (res) => {
         console.log('Suíno excluído com sucesso: ', res);
         this.carregarSuinos();
