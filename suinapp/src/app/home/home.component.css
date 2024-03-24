@@ -10,6 +10,8 @@
   align-items: center;
   justify-content: center;
   text-align: center;
+  width: 80%;
+  margin-bottom: 80px;
 }
 
 .logo {
@@ -63,4 +65,20 @@ svg {
 
 .btn-start:hover {
   background-color: #45a049;
+}
+
+@media (max-width: 768px) {
+  .content > .btn-start {
+    width: 100%;
+  }
+
+  .features {
+    flex-direction: column;
+  }
+
+  .feature {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
 }
