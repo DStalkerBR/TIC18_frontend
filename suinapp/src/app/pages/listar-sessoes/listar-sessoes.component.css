@@ -23,6 +23,13 @@
   height: 40px;
 }
 
+.card-header-2 p-calendar,
+.card-header-2 input {
+  width: 50%;
+  margin-right: 1em;
+  margin-left: 1em;
+}
+
 .card-header-2 h5 {
   font-size: 1.5rem;
 }
@@ -44,12 +51,48 @@
   font-size: 1.5rem;
 }
 
-@media screen and (max-width: 768px) {
-  .card-header-2 h5 {
-    font-size: 1rem;
-  }
+.progress-container {
+  margin-top: 20px;
+  opacity: 0.3;
+}
 
+.progress-label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.progress-bar-container {
+  display: flex;
+  align-items: center;
+}
+
+.progress-bar-container progress {
+  width: 100%;
+  margin-right: 10px;
+}
+
+.progress-value {
+  font-size: 14px;
+  color: #333;
+}
+
+@media screen and (max-width: 768px) {
   .card-header-2 {
     height: 100%;
+    flex-direction: column;
+    gap: 1em;
+  }
+
+  .card-header-2 i,
+  .card-header-2 h5 {
+    margin: 0;
+    padding: 0;
+  }
+
+  .card-header-2 p-calendar,
+  .card-header-2 input {
+    width: 100%;
+    margin-right: 0;
+    margin-left: 0;
   }
 }

@@ -2,7 +2,7 @@
 
 Esse Projeto foi gerado com  [Angular CLI](https://github.com/angular/angular-cli) versão 17.2.3.
 
-Este é um projeto Angular desenvolvido para gerenciar a criação de suínos em uma fazenda de suinocultura. A aplicação possui funcionalidades para cadastro de suínos, listagem, controle de peso, autenticação de usuários e comunicação com o backend. 
+Este é um projeto Angular desenvolvido para gerenciar a criação de suínos em uma fazenda de suinocultura. A aplicação possui funcionalidades para cadastro de suínos, listagem, controle de peso, sessoões de trabalho e autenticação de usuários. 
 
 ## Funcionalidades
 
@@ -33,6 +33,14 @@ Este é um projeto Angular desenvolvido para gerenciar a criação de suínos em
   - Data da pesagem
   - Peso em Kg
 
+### Sessões
+- Gerenciamento de sessões de trabalho para os suinocultores.
+- Cadastro de sessões com os seguintes campos:
+  - Data da sessão
+  - Horário de início
+  - Horário de término
+  - Atividades realizadas
+
 ### Autenticação do Usuário
 - Login com validação de email e senha.
 - Opção para nova inscrição.
@@ -49,13 +57,24 @@ O projeto está estruturado com os seguintes componentes principais:
 
 - **Cadastro de Suínos**: Componente para adicionar novos suínos.
 - **Listagem de Suínos**: Componente para visualizar e filtrar suínos existentes.
-- **Controle de Peso**: Componente para monitorar o peso dos suínos e adicionar novos registros de peso.
+- **Controle de Peso**: Componentes para monitorar o peso dos suínos e adicionar novos registros de peso.
+- **Sessões**: Componentes para gerenciar sessões de trabalho.
 - **Autenticação**: Componente para login de usuários e opção de nova inscrição.
-- **Serviço de Backend**: Comunicação com o backend para persistência de dados.
+- **Serviço de Backend**: Comunicação com o backend (Firebase) para persistência de dados.
 
 ## Como Executar
 
 1. Clone o repositório.
 2. Instale as dependências com `npm install`.
-3. Execute o servidor de desenvolvimento com `ng serve`.
-4. Acesse a aplicação em `http://localhost:4200`.
+3. **Importante:** Crie um arquivo `app.config.ts` na pasta `src/app/` e adicione o seguinte conteúdo:
+```typescript
+// src/app/app.config.ts
+
+export const config = {
+  firebaseURL: 'URL_DO_HOSTING_DO_FIREBASE',
+  projectAPIKey: 'API_KEY_DO_FIREBASE',
+};
+```
+4. Atualize os valores `'URL_DO_HOSTING_DO_FIREBASE'` e `'API_KEY_DO_FIREBASE'` com as informações corretas para o Firebase ou sua API.
+5. Execute a aplicação com `ng serve`.
+6. Acesse a aplicação em `http://localhost:4200`.

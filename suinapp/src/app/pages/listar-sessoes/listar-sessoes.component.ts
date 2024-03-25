@@ -21,6 +21,7 @@ export class ListarSessoesComponent implements OnInit {
   editar = false;
   displayConfirm = false;
   statusListPreEdicao: boolean[] = [];
+  progressoTarefas : number = 0;
 
   constructor(
     private databaseService: DataBaseService,
@@ -29,6 +30,13 @@ export class ListarSessoesComponent implements OnInit {
 
   ngOnInit() {
     this.carregarSessoes();
+  }
+
+  ngDoCheck() {
+    if (this.editar) {
+      // Atualiza o progresso das tarefas enquanto o usuário edita uma sessão.
+      this.progressoTarefas  = this.calcularProgressoTarefas();
+    }
   }
 
   carregarSessoes() {
@@ -169,4 +177,16 @@ export class ListarSessoesComponent implements OnInit {
       }
     });
   }
+
+  calcularProgressoTarefas(): number {  
+    const sessao = this.sessoes[this.first];
+    const tarefas = this.tarefasPorBrinco[sessao.id];
+
+    const totalTarefas = Object.values(tarefas).reduce((acc, tarefasBrinco) => acc + tarefasBrinco.length, 0);
+    const tarefasConcluidas = Object.values(tarefas).reduce((acc, tarefasBrinco) => {
+      return acc + tarefasBrinco.filter(tarefa => tarefa.status).length;
+    }, 0);
+
+    return (tarefasConcluidas / totalTarefas) * 100;
+  }  
 }

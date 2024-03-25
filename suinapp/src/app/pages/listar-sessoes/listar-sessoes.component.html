@@ -14,9 +14,8 @@
                         <i class="pi pi-calendar" style="font-size: 1.5em"></i>
                         <ng-container *ngIf="editar; else readOnlyTitle">
                             <p-calendar [(ngModel)]="sessao.data" [showIcon]="true" [readonlyInput]="true"
-                                [dateFormat]="'dd/mm/yy'" [showTime]="false"></p-calendar>
-                            <input type="text" pInputText [(ngModel)]="sessao.descricao" size="50" 
-                                style="margin-left: 1em;">
+                                [dateFormat]="'dd/mm/yy'" [showTime]="false"  [style]="{'width':'100%'}" ></p-calendar>
+                            <input type="text" pInputText [(ngModel)]="sessao.descricao" >
                         </ng-container>
                         <ng-template #readOnlyTitle>
                              <h5> {{ sessao.data | date: 'dd/MM/yyyy' }} - {{ sessao.descricao }} </h5>
@@ -58,8 +57,15 @@
                                 </td>
                             </tr>
                         </ng-template>
-                    </p-table>
+                    </p-table>                      
                 </p-panel>
+                <div *ngIf="editar" class="progress-container">
+                    <div class="progress-bar-container">
+                      <progress [value]="progressoTarefas" max="100" id="progress-bar"></progress>
+                      <span class="progress-value">{{ progressoTarefas | number: '1.0-0' }}%</span>
+                    </div>
+                    <div class="progress-label">Progresso das Tarefas na Sessão em {{ sessao.data | date: 'dd/MM/yyyy' }}</div>
+                </div>
             </div>
         </ng-container>
     </div>
